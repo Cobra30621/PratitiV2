@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
+
 public class TalkObjectSystem : IGameSystem
 {
     private List<GameObject> talkObjects; // 所有可對話物件
     private List<GameObject> mapPratitis; // 所有場景中的帕拉緹緹
 
-//    private TalkPratiti enemyPratiti; // 正在戰鬥的帕拉緹緹
-
     private Flowchart mainFlowchart; // 遊戲共同事件
-    public bool IsTalking; 
+    public bool IsTalking;  // 是否正在對話
+
+    //------------------對話時，其他東西執行------------------------
+
+    public delegate void StoryEvent(Fungus.Block storyblock);
+
+    public static StoryEvent onStoryStart;
+    public static StoryEvent onStoryEnd;
 
     public TalkObjectSystem(GameMediator mediator):base(mediator)
 	{
@@ -23,8 +29,31 @@ public class TalkObjectSystem : IGameSystem
         mapPratitis = new List<GameObject>();
     
         mainFlowchart = GameObject.Find("MainFlowchart").GetComponent<Flowchart>();
+
+        // 註冊故事事件
+        Fungus.BlockSignals.OnBlockStart += onFungusPlay;
+        Fungus.BlockSignals.OnBlockEnd += onFungusEnd;
     }
 
+    //---------------------------------------------------------
+    // 劇情播放相關
+
+    private void onFungusPlay(Fungus.Block b)
+    {
+        Debug.Log("<color=purple>Fungus Play: "+b.BlockName+"</color>");
+        IsTalking = true;
+        onStoryStart?.Invoke(b);
+    }
+
+    private void onFungusEnd(Fungus.Block b)
+    {
+        Debug.Log("<color=purple>Fungus End: "+b.BlockName+"</color>");
+        IsTalking = false;
+        onStoryEnd?.Invoke(b);
+        // UpdateObjectBehavior(); // 更新對話物件狀態
+    }
+
+    // =========== 增加對話物件
     public void AddTalkObject(GameObject talkObject){
         talkObjects.Add(talkObject);
     }
@@ -45,7 +74,7 @@ public class TalkObjectSystem : IGameSystem
     }
 
     // 更新對話物件的行為
-    public void UpdateObjectBehavior(){
+    public void UpdateAllObjectBehavior(){
         foreach(GameObject talk in talkObjects)  {
             if(talk != null){
                 talk.GetComponent<TalkObject>().UpdateObjectBehavior();
@@ -57,7 +86,7 @@ public class TalkObjectSystem : IGameSystem
     public void InitializeTalkState(){
         foreach(GameObject talk in talkObjects)  {
             if(talk != null){
-                talk.GetComponent<TalkObject>().TalkState = 0;
+                // talk.GetComponent<TalkObject>().TalkState = 0;
             }
 		}
     }
@@ -76,6 +105,11 @@ public class TalkObjectSystem : IGameSystem
     public Flowchart GetMainFlowchart(){
         return mainFlowchart;
     }
+
+    public bool GetIstalking(){
+        return IsTalking;
+    }
+
 
     // 存檔相關
 
@@ -103,8 +137,6 @@ public class TalkObjectSystem : IGameSystem
         UpdateTalkState();
     }*/
 
-    public bool GetIstalking(){
-        return IsTalking;
-    }
+    
 
 }

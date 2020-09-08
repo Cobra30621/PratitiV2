@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Collider2DRaycastFilter.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\AssertCommand.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Break.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Call.cs" />
@@ -701,8 +702,10 @@
      <Compile Include="Assets\Script\Factory\AssetFactory\IAssetFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\PBDFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\ResourceAssetFactory.cs" />
-     <Compile Include="Assets\Script\GameLoop.cs" />
-     <Compile Include="Assets\Script\GameMediator.cs" />
+     <Compile Include="Assets\Script\FungusCommand\EnterBattle.cs" />
+     <Compile Include="Assets\Script\LevelDesign\PlayerController.cs" />
+     <Compile Include="Assets\Script\Map\MapSystem.cs" />
+     <Compile Include="Assets\Script\Save\SaveSystem.cs" />
      <Compile Include="Assets\Script\SceneState\BattleState.cs" />
      <Compile Include="Assets\Script\SceneState\ISceneState.cs" />
      <Compile Include="Assets\Script\SceneState\MainMenuState.cs" />
@@ -715,6 +718,8 @@
      <Compile Include="Assets\Script\TalkObject\UseFungus.cs" />
      <Compile Include="Assets\Script\Tools\UITool.cs" />
      <Compile Include="Assets\Script\Tools\UnityTool.cs" />
+     <Compile Include="Assets\Script\Utility\GameLoop.cs" />
+     <Compile Include="Assets\Script\Utility\GameMediator.cs" />
      <None Include="Assets\Fungus\Thirdparty\ThirdPartyNotices.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\LineBreaking Leading Characters.txt" />
@@ -725,6 +730,7 @@
      <None Include="Assets\Fungus\Docs\LICENSE.txt" />
      <None Include="Assets\Fungus\Integrations\Playmaker\ReadMe.txt" />
      <None Include="Assets\Fungus\Scripts\link.xml" />
+     <None Include="Assets\Image\Material\blur.shader" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Types\FungusTypes.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Sprites\EmojiOne Attribution.txt" />
@@ -746,20 +752,59 @@
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Lua\fungus.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\Fungus\Docs\CHANGELOG.txt" />
+ <Reference Include="Cinemachine">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Animation.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.IK.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.IK.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="PsdPlugin">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Psdimporter.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEngineBridge.001">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Common.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Animation.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Triangle.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Triangle.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Common.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.001">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Hub/Editor/2018.3.11f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

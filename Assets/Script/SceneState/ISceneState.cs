@@ -12,6 +12,7 @@ public class ISceneState
 {
 	// 狀態名稱
 	private string m_StateName = "ISceneState";
+	public SceneState _sceneState;
 	public string StateName
 	{
 		get{ return m_StateName; }

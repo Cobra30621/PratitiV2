@@ -138,20 +138,59 @@
      <Compile Include="Assets\Fungus\Thirdparty\FungusLua\Thirdparty\JSON\Editor\JSONChecker.cs" />
      <Compile Include="Assets\Fungus\Thirdparty\LineEndings\Editor\LineEndingsEditMenu.cs" />
      <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Editor\SfxrGenerator.cs" />
+ <Reference Include="Cinemachine">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Animation.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.IK.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.IK.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="PsdPlugin">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Psdimporter.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEngineBridge.001">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Common.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Animation.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Triangle.Runtime">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Triangle.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Common.Editor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.001">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Hub/Editor/2018.3.11f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -381,8 +420,14 @@
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity/Hub/Editor/2018.3.11f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>/Applications/Unity/Hub/Editor/2018.3.11f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Hub/Editor/2018.3.11f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="NSubstitute">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/PackageCache/com.unity.2d.common@1.0.11-preview.1/Tests/Editor/Lib/NSubstitute/NSubstitute.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>

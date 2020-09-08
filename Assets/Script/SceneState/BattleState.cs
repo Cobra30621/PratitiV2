@@ -7,7 +7,9 @@ public class BattleState : ISceneState
 {
 	public BattleState(SceneStateController Controller):base(Controller)
 	{
+		this._sceneState = SceneState.Battle;
 		this.StateName = "BattleState";
+		GameMediator.Instance.SetSceneState(this); // 將自己加入GameMediator中
 	}
 
 	// 開始
@@ -26,8 +28,9 @@ public class BattleState : ISceneState
 	public override void StateUpdate()
 	{	
 
-		// 是否要離開戰鬥
-        if(GameMediator.Instance.GetSceneState() == SceneState.Battle)
-            m_Controller.SetState(new MainMenuState(m_Controller), "Map" );
+	}
+
+	public void BackToMap(){
+		m_Controller.SetState(new MapState(m_Controller), "Map" );
 	}
 }

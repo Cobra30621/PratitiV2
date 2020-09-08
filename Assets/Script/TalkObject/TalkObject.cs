@@ -11,7 +11,8 @@ public class TalkObject : MonoBehaviour
     public TalkIconType talkIconType = TalkIconType.talk; // 對話時顯示的Icon類型
     
     private TalkIcon talkIcon; // 對話時顯示的Icon
-    private Flowchart m_flowchart;
+    public Flowchart m_flowchart;
+    
     
     // 物件的狀態機
     public int TalkState  
@@ -28,7 +29,7 @@ public class TalkObject : MonoBehaviour
 
     void Start(){
         Initialize();
-        m_flowchart = transform.GetComponentInChildren<Flowchart>(); // 取得自己的對話物件
+        // m_flowchart = transform.GetComponentInChildren<Flowchart>(); // 取得自己的對話物件
     }
 
     public virtual void Initialize(){
@@ -36,8 +37,10 @@ public class TalkObject : MonoBehaviour
         GameMediator.Instance.AddTalkObject(this.gameObject);  // 加入TalkObjectSystem
     }
 
-    void OnTriggerEnter (Collider other){
+    void OnTriggerEnter2D (Collider2D other){
+        Debug.Log("SomeThingEnter");
 		if(other.tag == "Player"){
+            Debug.Log("PlayerEnter");
             inPlayerView = true;
 
             if ( InputZToPlayBlock ){
@@ -49,7 +52,7 @@ public class TalkObject : MonoBehaviour
 		}
 	}
 
-    void OnTriggerExit (Collider other){
+    void OnTriggerExit2D (Collider2D other){
         if(other.tag == "Player"){
             inPlayerView = false;
 
@@ -71,6 +74,15 @@ public class TalkObject : MonoBehaviour
     public void PlayStoryEvent(){
         UpdateTalkState(); // 判斷並更新對話物件的狀態
         UseFungus.PlayBlock( m_flowchart.gameObject , "JudgeTalkEvent" );
+
+        // 播完對話後更新狀態
+        TalkObjectSystem.StoryEvent action = null;
+        action = (b)=>
+        { 
+            TalkObjectSystem.onStoryEnd-=action; 
+            GameMediator.Instance.UpdateAllObjectBehavior();   
+        };
+        TalkObjectSystem.onStoryEnd += action;  
     }
 
     // 更新對話物件的行為
@@ -83,4 +95,10 @@ public class TalkObject : MonoBehaviour
     public void UpdateTalkState(){
         UseFungus.PlayBlock( m_flowchart.gameObject , "JudgeState" );
     }
+
+    // 提供給Fungus用的方法
+    public void SetInputZToPlayBlock(bool bo){
+        InputZToPlayBlock = bo;
+    }
+
 }

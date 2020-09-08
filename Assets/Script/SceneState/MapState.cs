@@ -7,19 +7,21 @@ public class MapState : ISceneState
 {
 	public MapState(SceneStateController Controller):base(Controller)
 	{
+		this._sceneState = SceneState.Map;
 		this.StateName = "MapState";
+		GameMediator.Instance.SetSceneState(this); // 將自己加入GameMediator中
 	}
 
 	// 開始
 	public override void StateBegin()
 	{
-		GameMediator.Instance.Initinal();
+		// GameMediator.Instance.Initinal();
 	}
 
 	// 結束
 	public override void StateEnd()
 	{
-        GameMediator.Instance.Release();
+        // GameMediator.Instance.Release();
 		// PBaseDefenseGame.Instance.Release();
 	}
 			
@@ -29,14 +31,13 @@ public class MapState : ISceneState
 		// 遊戲邏輯
 		GameMediator.Instance.Update();
 		// Render由Unity負責
-
-        // 是否要進入戰鬥
-        if(GameMediator.Instance.GetSceneState() == SceneState.Battle)
-            m_Controller.SetState(new MainMenuState(m_Controller), "Battle" );
-
-        // 是否要離開遊戲
-        if(GameMediator.Instance.GetSceneState() == SceneState.MainMenu)
-            m_Controller.SetState(new MainMenuState(m_Controller), "MainMenu" );
 	}
 
+	public void EnterBattle(){
+		m_Controller.SetState(new BattleState(m_Controller), "Battle" );
+	}
+
+	public void LeaveGame(){
+		m_Controller.SetState(new MainMenuState(m_Controller), "MainMenu" );
+	}
 }

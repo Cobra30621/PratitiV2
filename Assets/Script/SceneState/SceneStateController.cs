@@ -25,6 +25,7 @@ public class SceneStateController
 			m_State.StateEnd();
 
 		// 設定
+		Debug.Log($"切換場景{m_State}為場景{State}");
 		m_State=State;	
 	}
 
