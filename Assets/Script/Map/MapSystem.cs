@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Fungus;
 
+public enum MapName{
+    Village, DessertHouse1, DessertHouse2
+}
+
 public class MapSystem : IGameSystem
 {
     private Flowchart mainFlowchart; // 遊戲共同事件
@@ -12,6 +16,8 @@ public class MapSystem : IGameSystem
 
     private MapState mapState; // 地圖場景狀態
     private BattleState battleState; // 戰鬥場景狀態
+
+    public GameObject[] Cameras;
     
 
     // 玩家位置相關
@@ -24,6 +30,7 @@ public class MapSystem : IGameSystem
 
      public override void Initialize(){
         SetMapObject();
+        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
     }
 
     // 每次回到地圖，會重新抓這些東西
@@ -63,6 +70,19 @@ public class MapSystem : IGameSystem
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    // 設置攝影機
+    public void SetCamera(MapName map){
+        foreach(GameObject camera in Cameras){
+            camera.SetActive(false);
+            if(camera.GetComponent<ICamera>()._mapName == map)
+            {
+                camera.SetActive(true);
+                Debug.Log($"打開攝影機{map}");
+            }
+                
+        }
+    }
+
     // ===================玩家位置方法===================
     public void SavePlayerPos(){
         if(player == null)  
@@ -76,6 +96,33 @@ public class MapSystem : IGameSystem
             SetMapObject();
         
         player.transform.position = pos;
+    }
+
+
+    // ===================轉場方法===================
+    public float duration = 1f;
+	float targetAlpha = 1f;
+	Color fadeColor = Color.black;
+    FadeScreenMethon fadeMethon = new FadeScreenMethon(); // 執行轉場的Fungus方法
+
+    public void ChangeScene(Vector3 vec, MapName map){
+        var cameraManager = FungusManager.Instance.CameraManager;
+
+        cameraManager.ScreenFadeTexture = CameraManager.CreateColorTexture(fadeColor, 32, 32);
+        cameraManager.FadeOut(duration, delegate { // 淡出
+                fadeMethon.Continue(); // 繼續對話
+                SetCamera(map); // 設置攝影機
+                SetPlayerPos(vec); // 轉移玩家位置
+                fadeMethon.FadeIn(); // 淡入
+        });
+    }
+
+    public void FadeIn(){
+        fadeMethon.FadeIn();
+    }
+    
+    public void FadeOut(){
+        fadeMethon.FadeOut();
     }
 
 

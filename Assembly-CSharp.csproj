@@ -703,7 +703,9 @@
      <Compile Include="Assets\Script\Factory\AssetFactory\PBDFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\ResourceAssetFactory.cs" />
      <Compile Include="Assets\Script\FungusCommand\EnterBattle.cs" />
+     <Compile Include="Assets\Script\FungusCommand\FadeSceenMethon.cs" />
      <Compile Include="Assets\Script\LevelDesign\PlayerController.cs" />
+     <Compile Include="Assets\Script\Map\ICamera.cs" />
      <Compile Include="Assets\Script\Map\MapSystem.cs" />
      <Compile Include="Assets\Script\Save\SaveSystem.cs" />
      <Compile Include="Assets\Script\SceneState\BattleState.cs" />
@@ -712,6 +714,7 @@
      <Compile Include="Assets\Script\SceneState\MapState.cs" />
      <Compile Include="Assets\Script\SceneState\SceneStateController.cs" />
      <Compile Include="Assets\Script\SceneState\StartState.cs" />
+     <Compile Include="Assets\Script\TalkObject\Portal.cs" />
      <Compile Include="Assets\Script\TalkObject\TalkIcon.cs" />
      <Compile Include="Assets\Script\TalkObject\TalkObject.cs" />
      <Compile Include="Assets\Script\TalkObject\TalkObjectSystem.cs" />

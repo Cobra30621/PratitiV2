@@ -46,6 +46,20 @@ public class GameLoop : MonoBehaviour
 	void Update () 
 	{
 		m_SceneStateController.StateUpdate();	
+		if (Input.GetKey(KeyCode.Q))
+			GameMediator.Instance.FadeIn();
+		if (Input.GetKey(KeyCode.W))
+			GameMediator.Instance.FadeOut();
+		if (Input.GetKey(KeyCode.E))
+		{
+			GameMediator.Instance.FadeOut();
+			GameMediator.Instance.FadeIn();
+		}
+		if (Input.GetKey(KeyCode.R))
+			GameMediator.Instance.FadeInAndOut();
+
+			
+
 	}
 
 
@@ -53,4 +67,5 @@ public class GameLoop : MonoBehaviour
 	public void EndBattle(){
 		GameMediator.Instance.BackToMap();
 	}
+
 }

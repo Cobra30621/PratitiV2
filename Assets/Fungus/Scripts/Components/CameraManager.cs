@@ -277,6 +277,64 @@ namespace Fungus
         }
 
         /// <summary>
+        /// // 自己加入:淡入
+        /// </summary>
+        public virtual void FadeIn(float inDuration, Action fadeAction)
+        {
+            fadeAlpha = 0f;
+
+            // Fade in
+            Fade(1f, 0, delegate {
+                // Fade in
+                Fade(0f, inDuration, delegate {
+                    if (fadeAction != null)
+                    {
+                        fadeAction();
+                    }
+                });
+            });
+        }
+
+        /// <summary>
+        /// // 自己加入:淡出
+        /// </summary>
+        public virtual void FadeOut(float inDuration, Action fadeAction)
+        {
+            fadeAlpha = 1f;
+
+            // Fade out
+            Fade(0f, 0, delegate {
+                // Fade out
+                Fade(1f, inDuration, delegate {
+                    if (fadeAction != null)
+                    {
+                        fadeAction();
+                    }
+                });
+            });
+        }
+
+        /// <summary>
+        /// // 自己加入:淡出
+        /// </summary>
+        public virtual void FadeInAndOut(float inDuration, Action fadeAction)
+        {
+            // Fade out
+            Fade(0f, 0, delegate {
+                // Fade out
+                Fade(1f, inDuration, delegate {
+                    Fade(0f, inDuration, delegate {
+                        if (fadeAction != null)
+                        {
+                            fadeAction();
+                        }
+                     });   
+                    
+                });
+            });
+        }
+
+        /// <summary>
         /// Stop all camera tweening.
         /// </summary>
         public virtual void Stop()

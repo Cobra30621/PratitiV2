@@ -109,5 +109,25 @@ public class GameMediator
 		m_mapSystem.BackToMap();
 	}
 
+	public void FadeIn(){
+		m_mapSystem.FadeIn();
+	}
+
+	public void FadeOut(){
+		m_mapSystem.FadeOut();
+	}
+
+	public void FadeInAndOut(){
+		// m_mapSystem.FadeInAndOut();
+	}
+
+	public void ChangeScene(Vector3 vec, MapName map){
+		m_mapSystem.ChangeScene(vec, map);
+	}
+
+	public void SetCamera(MapName map){
+        m_mapSystem.SetCamera(map);
+    }
+
 
 }

@@ -6,7 +6,7 @@ using Fungus;
 public class TalkObject : MonoBehaviour
 {
     public bool InputZToPlayBlock ; // 啟動對話是否為玩家按Z鍵
-    private bool inPlayerView; // 是否在視野內
+    protected bool inPlayerView; // 是否在視野內
 
     public TalkIconType talkIconType = TalkIconType.talk; // 對話時顯示的Icon類型
     
@@ -63,7 +63,7 @@ public class TalkObject : MonoBehaviour
     }
 
     // 玩家點擊按鈕時，判斷並播放故事
-    public void PlayStoryWhenKeyPress(){
+    public virtual void PlayStoryWhenKeyPress(){
         if (InputZToPlayBlock && inPlayerView && !IsTalking)
         {
             PlayStoryEvent();
