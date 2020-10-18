@@ -53,7 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Collider2DRaycastFilter.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\AssertCommand.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Break.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Call.cs" />
@@ -698,12 +697,12 @@
      <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Scripts\SfxrParams.cs" />
      <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Scripts\SfxrSynth.cs" />
      <Compile Include="Assets\Script\BaseClass\IGameSystem.cs" />
-     <Compile Include="Assets\Script\BaseClass\IUserInterface.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\IAssetFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\PBDFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\ResourceAssetFactory.cs" />
      <Compile Include="Assets\Script\FungusCommand\EnterBattle.cs" />
      <Compile Include="Assets\Script\FungusCommand\FadeSceenMethon.cs" />
+     <Compile Include="Assets\Script\FungusCommand\MovePlayer.cs" />
      <Compile Include="Assets\Script\LevelDesign\PlayerController.cs" />
      <Compile Include="Assets\Script\Map\ICamera.cs" />
      <Compile Include="Assets\Script\Map\MapSystem.cs" />

@@ -22,6 +22,7 @@ public class MapSystem : IGameSystem
 
     // 玩家位置相關
     public Vector3 _playPos;
+    public MapName _nowMap;
 
     public MapSystem(GameMediator mediator):base(mediator)
 	{
@@ -31,6 +32,7 @@ public class MapSystem : IGameSystem
      public override void Initialize(){
         SetMapObject();
         Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
+        SetCamera(MapName.Village); // 暫時直接設為村子
     }
 
     // 每次回到地圖，會重新抓這些東西
@@ -66,12 +68,17 @@ public class MapSystem : IGameSystem
         LoadVariable(); // 讀取劇情變數
         GameMediator.Instance.InitializeTalkState(); // 更新所有物件狀態
         SetPlayerPos(_playPos); // 更改玩家位置
+        SetCamera(_nowMap); // 設定攝影機
         // 淡入淡出
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     // 設置攝影機
     public void SetCamera(MapName map){
+        _nowMap = map;
+        if(Cameras == null)
+            Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
+        
         foreach(GameObject camera in Cameras){
             camera.SetActive(false);
             if(camera.GetComponent<ICamera>()._mapName == map)
@@ -79,7 +86,6 @@ public class MapSystem : IGameSystem
                 camera.SetActive(true);
                 Debug.Log($"打開攝影機{map}");
             }
-                
         }
     }
 
