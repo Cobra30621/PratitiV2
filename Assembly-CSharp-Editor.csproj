@@ -426,6 +426,12 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Hub/Editor/2018.3.11f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
  <Reference Include="NSubstitute">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/PackageCache/com.unity.2d.common@1.0.11-preview.1/Tests/Editor/Lib/NSubstitute/NSubstitute.dll</HintPath>
  </Reference>

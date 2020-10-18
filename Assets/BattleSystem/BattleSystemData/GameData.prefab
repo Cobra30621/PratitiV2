@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8334613142901028209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8334613142901028219}
+  - component: {fileID: 8334613142901028218}
+  - component: {fileID: 8334613142901028213}
+  - component: {fileID: 8334613142901028212}
+  - component: {fileID: 8334613142901028215}
+  - component: {fileID: 8334613142901028214}
+  m_Layer: 0
+  m_Name: GameData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8334613142901028219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334613142901028209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &8334613142901028218
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334613142901028209}
+  m_Enabled: 1
+--- !u!114 &8334613142901028213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334613142901028209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9586db9e261c2043b4ddb5ab35e4a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pratitiData:
+  - index: 1
+    pratitiName: "\u7FBD\u6BDB"
+    sexDetermination: 25
+    characteristic: 20
+    IV: 22
+    baseStatistic: 500
+    pressure: 0
+    maxHp: 470
+    maxAtk: 517
+    maxDef: 470
+    maxMAtk: 517
+    maxMDef: 470
+    maxAgi: 517
+    sex: 1
+    hp: 470
+    atk: 517
+    def: 470
+    mAtk: 517
+    mDef: 470
+    agi: 517
+    generalPoints: 0
+    winTimer: 0
+    winItem:
+      itemName: 0
+      quantity: 0
+--- !u!114 &8334613142901028212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334613142901028209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31084aa2e0f5234c9fa702c59eef011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowIngredientInventory:
+  - itemName: 8
+    quantity: 0
+  - itemName: 3
+    quantity: 0
+  ShowDessertInventory:
+  - itemName: 9
+    quantity: 0
+  ShowOtherInventory: []
+--- !u!114 &8334613142901028215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334613142901028209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea693ee50ab44d628eb1375a9184d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8334613142901028214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334613142901028209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a5b4ff72fe645b9b00bc19f3eb4a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPratiti:
+    index: 2
+    pratitiName: "\u7FBD\u6BDB"
+    sexDetermination: 55
+    characteristic: 15
+    IV: 84
+    baseStatistic: 500
+    pressure: 0
+    maxHp: 530
+    maxAtk: 583
+    maxDef: 530
+    maxMAtk: 524.7
+    maxMDef: 583
+    maxAgi: 530
+    sex: 1
+    hp: 26.5
+    atk: 29.15
+    def: 26.5
+    mAtk: 26.235
+    mDef: 29.15
+    agi: 26.5
+    generalPoints: 0
+    winTimer: 0
+    winItem:
+      itemName: 0
+      quantity: 0
+  PlayerPratiti:
+    index: 1
+    pratitiName: "\u7FBD\u6BDB"
+    sexDetermination: 25
+    characteristic: 20
+    IV: 22
+    baseStatistic: 500
+    pressure: 0
+    maxHp: 470
+    maxAtk: 517
+    maxDef: 470
+    maxMAtk: 517
+    maxMDef: 470
+    maxAgi: 517
+    sex: 1
+    hp: 470
+    atk: 517
+    def: 470
+    mAtk: 517
+    mDef: 470
+    agi: 517
+    generalPoints: 0
+    winTimer: 0
+    winItem:
+      itemName: 0
+      quantity: 0
+  GetItem:
+    itemName: 0
+    quantity: 0

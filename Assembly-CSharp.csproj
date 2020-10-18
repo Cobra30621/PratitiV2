@@ -53,6 +53,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BattleSystem\BattleSystemData\BattleDataBase.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemData\PratitiBattleData.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemData\PratitiBattleDataBase.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\BattleSystem.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\ButtonSystem.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\CatchSystem.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\control.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\Damage.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\defense.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\enemy.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\EnemyEmptyCollide.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\LittleMagic.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\Magic.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\Miss.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\Player.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\PratitiCloudControl.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\PratitiCloudLittleBodyControl.cs" />
+     <Compile Include="Assets\BattleSystem\BattleSystemScript\TutorialControl.cs" />
+     <Compile Include="Assets\BattleSystemZ\Script\AnimationEvent.cs" />
+     <Compile Include="Assets\BattleSystemZ\Script\AnimationEventControl.cs" />
+     <Compile Include="Assets\BattleSystemZ\Script\AnimatorBody.cs" />
+     <Compile Include="Assets\BattleSystemZ\Script\BattlePratitiData.cs" />
+     <Compile Include="Assets\BattleSystemZ\Script\HealthBarControl.cs" />
+     <Compile Include="Assets\BattleSystemZ\Script\PlayerController.cs" />
+     <Compile Include="Assets\Collider2DRaycastFilter.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\AssertCommand.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Break.cs" />
      <Compile Include="Assets\Fungus\Scripts\Commands\Call.cs" />
@@ -738,6 +770,7 @@
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Resources\Types\UnityTypes.txt" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Fungus\Integrations\Spine\Readme.txt" />
      <None Include="Assets\Fungus\Fonts\Amaranth\SIL Open Font License.txt" />
@@ -1011,6 +1044,9 @@
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>/Applications/Unity/Hub/Editor/2018.3.11f1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>/Users/cobra/Unity專案/PratitiV2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
