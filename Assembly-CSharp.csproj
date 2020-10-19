@@ -730,7 +730,7 @@
      <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Scripts\SfxrSynth.cs" />
      <Compile Include="Assets\Script\BaseClass\IGameSystem.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\IAssetFactory.cs" />
-     <Compile Include="Assets\Script\Factory\AssetFactory\PBDFactory.cs" />
+     <Compile Include="Assets\Script\Factory\AssetFactory\MainFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\ResourceAssetFactory.cs" />
      <Compile Include="Assets\Script\FungusCommand\EnterBattle.cs" />
      <Compile Include="Assets\Script\FungusCommand\FadeSceenMethon.cs" />
@@ -738,6 +738,11 @@
      <Compile Include="Assets\Script\LevelDesign\PlayerController.cs" />
      <Compile Include="Assets\Script\Map\ICamera.cs" />
      <Compile Include="Assets\Script\Map\MapSystem.cs" />
+     <Compile Include="Assets\Script\Pratiti\BagPratiti.cs" />
+     <Compile Include="Assets\Script\Pratiti\PratitiAttr.cs" />
+     <Compile Include="Assets\Script\Pratiti\PratitiBar.cs" />
+     <Compile Include="Assets\Script\Pratiti\PratitiSystem.cs" />
+     <Compile Include="Assets\Script\Pratiti\PratitiUI.cs" />
      <Compile Include="Assets\Script\Save\SaveSystem.cs" />
      <Compile Include="Assets\Script\SceneState\BattleState.cs" />
      <Compile Include="Assets\Script\SceneState\ISceneState.cs" />

@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 642, y: 274}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 30
+  controlID: 72
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 104, y: 248}
   m_MaxSize: {x: 4004, y: 8048}
   vertical: 1
-  controlID: 101
+  controlID: 31
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -312,10 +312,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -480
-    m_HBaseRangeMax: 480
-    m_VBaseRangeMin: -270
-    m_VBaseRangeMax: 270
+    m_HBaseRangeMin: -960
+    m_HBaseRangeMax: 960
+    m_VBaseRangeMin: -540
+    m_VBaseRangeMax: 540
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -335,7 +335,7 @@ MonoBehaviour:
       y: 17
       width: 723
       height: 391
-    m_Scale: {x: 0.72407407, y: 0.72407407}
+    m_Scale: {x: 0.36203703, y: 0.36203703}
     m_Translation: {x: 361.5, y: 195.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -343,15 +343,15 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -499.25833
-      y: -270
-      width: 998.51666
-      height: 540
+      x: -998.51666
+      y: -540
+      width: 1997.0333
+      height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.72407407
+  m_defaultScale: 0.36203703
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 1446, y: 816}
+  m_LastWindowPixelSize: {x: 723, y: 408}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 70f4ffff
+      m_SelectedIDs: a83f0000
       m_LastClickedID: 0
       m_ExpandedIDs: cafbffff
       m_RenameOverlay:
@@ -449,7 +449,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Image/Pratiti
+    - Assets/Image/Icon
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders: []
@@ -486,10 +486,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 70.99829}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000643600007c360000ee3600001a370000603700008e370000f4380000263a0000b43a00009c3b0000d63b00002a3c0000823c00009a3d0000c83d0000063e00000a3e0000603e0000923e0000c03e0000a83f0000be3f0000624700006447000066470000
+    m_ExpandedIDs: ffffffff00000000643600007c360000ee3600001a370000603700008e370000f4380000263a0000b43a00009c3b0000d63b00002a3c0000823c00009a3d0000c83d0000063e00000a3e0000923e0000be3f0000624700006447000066470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -505,7 +505,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 7}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}

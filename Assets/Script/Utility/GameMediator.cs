@@ -20,6 +20,7 @@ public class GameMediator
 	// 遊戲系統
 	TalkObjectSystem m_talkObjectSystem = null;
 	MapSystem m_mapSystem = null;
+	PratitiSystem m_pratitiSystem = null;
 
 	private GameMediator(){}
 
@@ -27,6 +28,7 @@ public class GameMediator
 		Debug.Log("初始化系統");
 		m_talkObjectSystem = new TalkObjectSystem(this);
 		m_mapSystem = new MapSystem(this);
+		m_pratitiSystem = new PratitiSystem(this);
 	}
 
 	public void Update(){
@@ -128,6 +130,26 @@ public class GameMediator
 	public void SetCamera(MapName map){
         m_mapSystem.SetCamera(map);
     }
+
+	// ================================================
+	// =================PratitiSystem======================
+	// ================================================
+
+	public List<BagPratiti> GetBagPratitis(){
+		return m_pratitiSystem._bagPratitis;
+	}
+
+	public BagPratiti GetStartPratiti(){
+		return m_pratitiSystem._startPratiti;
+	}
+
+	public void CreateBagPratiti(PratitiType type){
+		m_pratitiSystem.CreateBagPratiti(type);
+	}
+
+	public void SetStartPratiti(int ID){
+		m_pratitiSystem.SetStartPratiti(ID);
+	}
 
 
 }

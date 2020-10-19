@@ -2,6 +2,7 @@
 using System.Collections;
 
 // 取得P-BaseDefenseGame中所使用的工廠
+
 public static class MainFactory
 {
 	private static bool   		 m_bLoadFromResource = true;
@@ -13,7 +14,7 @@ public static class MainFactory
 	{
 		if( m_AssetFactory == null)
 		{
-				m_AssetFactory = new ResourceAssetFactory();
+			m_AssetFactory = new ResourceAssetFactory();
 		}
 		return m_AssetFactory;
 	}

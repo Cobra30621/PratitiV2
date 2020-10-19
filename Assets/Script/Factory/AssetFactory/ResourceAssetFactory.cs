@@ -5,6 +5,25 @@ using System.Collections;
 public class ResourceAssetFactory : IAssetFactory 
 {
 	public const string TalkIconPath = "TalkIcon/";
+	public const string PratitiSpritePath = "Pratiti/";
+
+	// 讀取照片
+	public override Sprite LoadPratitiSprite(PratitiType type){
+		string pratitiName = "feather";
+        switch(type){
+            case PratitiType.Feather:
+                pratitiName = "feather";
+                break;
+            case PratitiType.Pig:
+                pratitiName = "pig";
+                break;
+            default:
+                Debug.LogError("找不到Icon");
+                break;
+        }
+
+		return Resources.Load(  PratitiSpritePath + pratitiName,typeof(Sprite)) as Sprite;
+	}
 
 	// 產生Icon
 	public override GameObject LoadTalkIcon( string AssetName )

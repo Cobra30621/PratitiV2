@@ -4,7 +4,10 @@ using System.Collections;
 // 將Unity Asset實體化成GameObject的工廠類別
 public abstract class IAssetFactory
 {
-	// 產生Soldier
+	// 讀取照片
+	public abstract Sprite LoadPratitiSprite(PratitiType type); 
+
+	// 產生物件
 	public abstract GameObject LoadTalkIcon( string AssetName );
 
 
