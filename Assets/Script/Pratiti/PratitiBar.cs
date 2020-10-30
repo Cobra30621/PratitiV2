@@ -24,27 +24,23 @@ public class PratitiBar : MonoBehaviour
         _bagPratiti = pratiti;
         
         factory = MainFactory.GetAssetFactory();
-        SetIcon();
         RefreshInfo();
     }   
 
     public void RefreshInfo(){
-        img_icon.sprite = sprite_icon;
+        // img_icon.sprite = sprite_icon;
+        img_icon.sprite = _bagPratiti._pratitiData._icon;
         lab_name.text = _bagPratiti._name;
         lab_first.text = "選擇";
     }
 
-    private void SetIcon(){
-        PratitiType type = _bagPratiti._pratitiType;
-        sprite_icon = factory.LoadPratitiSprite(type);
-    }
 
     public void OnBarClick(){
-        GameMediator.Instance.SetStartPratiti(_bagPratiti._ID);
+        GameMediator.Instance.SetSelectedPratiti(_bagPratiti._ID);
     }
 
-    public void OnSelectClick(){
-
+    public void OnStartClick(){
+        GameMediator.Instance.SetStartPratiti(_bagPratiti._ID);
     }
 
 

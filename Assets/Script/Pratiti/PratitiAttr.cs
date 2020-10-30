@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus;
 
 public enum PratitiType{
-    Feather, Pig
+    Feather, Pig, Cloud
 }
 
 public class PratitiAttr
@@ -31,6 +30,15 @@ public class PratitiAttr
         rawAttr = 120;
         rawDef = 3000;
         rawSpeed = 100;
+    }
+
+    public PratitiAttr(PratitiType type, PratitiData data){
+        pratitiType = type;
+
+        rawHp = data._rawHp;
+        rawAttr = data._rawAttr;
+        rawDef = data._rawDef;
+        rawSpeed = data._rawSpeed;
     }
 }
 

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PratitiUI: MonoBehaviour
 {
     private static PratitiUI instance;
+    // UI
     [SerializeField] private Text lab_name;
     [SerializeField] private Text lab_Attr;
     [SerializeField] private Text lab_Def;
@@ -17,8 +18,15 @@ public class PratitiUI: MonoBehaviour
     [SerializeField] private Image img_icon;
     private Sprite sprite_icon;
 
+    [SerializeField] private Button[] StickerButtons;
+    [SerializeField] private Image[] img_stickers;
+
+    // Data
+    public PratitiSystem _pratitiSystem;
     public List<BagPratiti> _bagPratitis;
-    public BagPratiti _startPratiti;
+    public List<PratitiBar> _pratitiBars;
+    public List<GameObject> _barGameObjects;
+    public BagPratiti _selectedPratiti;
     public IAssetFactory factory;
     [SerializeField] GameObject pratitiBarPrefab;
     [SerializeField] Transform transform_PratitiBar;
@@ -26,7 +34,7 @@ public class PratitiUI: MonoBehaviour
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
-    void Awake()
+    void Start()
     {
         instance = this;
         Initialize();
@@ -41,47 +49,93 @@ public class PratitiUI: MonoBehaviour
     }   
 
     public static void Refresh(){
-        instance.GetPratitiInfo();
-        instance.RefreshInfo();
+        if(instance != null)
+        {
+            instance.RefreshInfo();
+        }
+        
+        
     }
 
+    public void RefreshInfo(){
+        GetPratitiInfo();
+        // CreateAllPratitiBars(); // 翻新Bar
+
+        Debug.Log("翻新屆面");
+        lab_name.text = _selectedPratiti._name;
+        lab_Attr.text = "攻擊力:" + _selectedPratiti._pratitiAttr.rawAttr ;
+        lab_Hp.text = "血量:" + _selectedPratiti._pratitiAttr.rawHp ;
+        lab_Def.text =  "防禦:" + _selectedPratiti._pratitiAttr.rawDef ;
+        lab_Speed.text = "速度:" + _selectedPratiti._pratitiAttr.rawSpeed ;
+
+        img_icon.sprite = _selectedPratiti._pratitiData._icon;
+
+        for(int i=0; i < 3; i++){
+            BagPratiti pratiti = _pratitiSystem._selectedPratiti;
+            if(pratiti._stickers[i] != null)
+            {
+                StickerType type = pratiti._stickers[i]._stickerType;
+                StickerData stickerData = factory.LoadStickerData(type);
+                img_stickers[i].sprite = stickerData._icon;
+            }
+            else{
+                img_stickers[i].sprite = null;
+            }
+        }
+        // img_icon.sprite = factory.LoadPratitiSprite(_selectedPratiti._pratitiType);
+    }
 
     public void GetPratitiInfo(){
+        _pratitiSystem = GameMediator.Instance.GetPratitiSystem();
         _bagPratitis = GameMediator.Instance.GetBagPratitis();
-        _startPratiti = GameMediator.Instance.GetStartPratiti();
-    }
-
-    
-    public void RefreshInfo(){
-        lab_name.text = _startPratiti._name;
-        lab_Attr.text = "攻擊力:" + _startPratiti._pratitiAttr.rawAttr ;
-        lab_Hp.text = "血量:" + _startPratiti._pratitiAttr.rawHp ;
-        lab_Def.text =  "防禦:" + _startPratiti._pratitiAttr.rawDef ;
-        lab_Speed.text = "速度:" + _startPratiti._pratitiAttr.rawSpeed ;
-
-        img_icon.sprite = factory.LoadPratitiSprite(_startPratiti._pratitiType);
+        _selectedPratiti = GameMediator.Instance.GetSelectedPratiti();
     }
 
     public void CreateAllPratitiBars(){
+        RemoveAllPratitiBarObject();
         foreach(BagPratiti pratiti in _bagPratitis){
             CreatePratitiBar(pratiti);
         }
 
     }
 
-        /// <summary>
-    /// 製作一個CreateStageDataCard
+    /// <summary>
+    /// 製作一個PratitiBar
     /// </summary>
     public void CreatePratitiBar(BagPratiti pratiti)
     {
         var g = Instantiate(pratitiBarPrefab, transform_PratitiBar);
-        // g.transform.SetParent(transform);
+        _barGameObjects.Add(g);
 
         var l = g.GetComponent<PratitiBar>();
         l.Initialize(pratiti); 
+        _pratitiBars.Add(l);
     }
 
+    public void RemoveAllPratitiBarObject(){
+        // List<GameObject> gameObjects = new List<GameObject>();
+        // foreach(PratitiBar bar in _pratitiBars){
+        //     gameObjects.Add(bar.gameObject);
+        // }
 
+        // Debug.Log("刪掉帕拉提提外面");
+        // foreach(GameObject gameObject in gameObjects){
+        //     Debug.Log("刪掉帕拉提提");
+        //     Destroy(gameObject);
+        // }
+    }
+
+    // 開啟介面方法
+    public void OnStickerSelected(int index){
+        if(_selectedPratiti._stickers[index] == null)
+        {
+            StickerSelectedUI.Show(); // 不太好的UI管理方法
+            _pratitiSystem._SelectedStickerID = index;
+        }
+        else{
+            Debug.Log("帕拉提提已經裝了貼紙");
+        }
+    }
 
     
 }

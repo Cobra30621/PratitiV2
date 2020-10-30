@@ -21,6 +21,7 @@ public class GameMediator
 	TalkObjectSystem m_talkObjectSystem = null;
 	MapSystem m_mapSystem = null;
 	PratitiSystem m_pratitiSystem = null;
+	ItemSystem m_itemSystem = null;
 
 	private GameMediator(){}
 
@@ -29,6 +30,7 @@ public class GameMediator
 		m_talkObjectSystem = new TalkObjectSystem(this);
 		m_mapSystem = new MapSystem(this);
 		m_pratitiSystem = new PratitiSystem(this);
+		m_itemSystem = new ItemSystem(this);
 	}
 
 	public void Update(){
@@ -139,6 +141,22 @@ public class GameMediator
 		return m_pratitiSystem._bagPratitis;
 	}
 
+	public void SetSelectedPratiti(int ID){
+		m_pratitiSystem.SetSelectedPratiti(ID);
+	}
+
+	public BagPratiti GetSelectedPratiti(){
+		return m_pratitiSystem._selectedPratiti;
+	}
+
+	public PratitiSystem GetPratitiSystem(){
+		return m_pratitiSystem;
+	}
+
+	public void SetStartPratiti(int ID){
+		m_pratitiSystem.SetStartPratiti(ID);
+	}
+
 	public BagPratiti GetStartPratiti(){
 		return m_pratitiSystem._startPratiti;
 	}
@@ -147,9 +165,19 @@ public class GameMediator
 		m_pratitiSystem.CreateBagPratiti(type);
 	}
 
-	public void SetStartPratiti(int ID){
-		m_pratitiSystem.SetStartPratiti(ID);
+
+	public void CreateAllPratitiTest(){
+		m_pratitiSystem.CreateAllPratiti();
 	}
+
+	// ================================================
+	// =================TalkObjectSystem===============
+	// ================================================
+	public ItemSystem GetItemSystem(){
+		return m_itemSystem;
+	}
+
+	
 
 
 }

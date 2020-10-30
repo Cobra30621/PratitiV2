@@ -10,25 +10,31 @@ public class BagPratiti
     public int _ID;
     public PratitiType _pratitiType;
     public PratitiAttr _pratitiAttr;
+    public PratitiData _pratitiData;
     public string _name;
+
+    public Sticker[] _stickers = new Sticker[3];
     
     // stickers
     // magicSkill
 
-    public BagPratiti(PratitiType type){
+    public BagPratiti(PratitiType type , PratitiData data){
         _pratitiType = type;
-        _pratitiAttr = new PratitiAttr(type);
+        _pratitiData = data;
+        _pratitiAttr = new PratitiAttr(type, data);
 
-        switch(type){
-            case PratitiType.Feather:
-                _name = "羽毛";
-                break;
-            case PratitiType.Pig:
-                _name = "山豬";
-                break;
-            default:
-                Debug.LogError("找不到名字");
-                break;
+        _name  = data._name;
+ 
+    }
+
+    public void SetSticker(Sticker sticker, int id){
+        if(id < _stickers.Length)
+        {
+            _stickers[id] = sticker;
+            sticker.SetPratiti(this);
+        }
+        else{
+            Debug.LogError($"StickerID超出範圍。ID = {id}");
         }
         
     }

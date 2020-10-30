@@ -4,6 +4,11 @@ using System.Collections;
 // 將Unity Asset實體化成GameObject的工廠類別
 public abstract class IAssetFactory
 {
+	// 讀取帕拉提提資料
+	public abstract PratitiData LoadPratitiData(PratitiType type);
+
+	// 讀取貼紙資料
+	public abstract StickerData LoadStickerData(StickerType type);
 	// 讀取照片
 	public abstract Sprite LoadPratitiSprite(PratitiType type); 
 

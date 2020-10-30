@@ -3,12 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus;
+using System;
+using System.Linq;
 
 public class PratitiSystem : IGameSystem
 {
     public List<BagPratiti> _bagPratitis = new List<BagPratiti>();
-    public BagPratiti _startPratiti;
+    public BagPratiti _startPratiti; // 出戰的帕拉提提
+    public BagPratiti _selectedPratiti; // 被選中的帕拉提提
+    
+    // 裝備相關
+    public int _SelectedStickerID;
+
+    private IAssetFactory _factory;
+
+    // 事件相關
+    public StickerSelectedUI _stickerSelectedUI;
 
     public PratitiSystem(GameMediator mediator):base(mediator)
 	{
@@ -16,17 +26,38 @@ public class PratitiSystem : IGameSystem
     }
 
     public override void Initialize(){
-        CreateBagPratiti(PratitiType.Pig);
-        CreateBagPratiti(PratitiType.Feather);
+        SetAssetFactory();
+        // CreateBagPratiti(PratitiType.Pig);
+        // CreateBagPratiti(PratitiType.Feather);
+        CreateAllPratiti();
+        // 超級爛的方法
+        _stickerSelectedUI = GameObject.Find("StickerSelectedPanel").GetComponent<StickerSelectedUI>();
+        _stickerSelectedUI._stickerEquiped += OnStickerEquiped;
 
         _startPratiti = _bagPratitis[0];
     }
 
+    public void CreateAllPratiti(){
+        foreach (PratitiType type in Enum.GetValues( typeof( PratitiType ) )){
+            CreateBagPratiti(type);
+        }
+    }
+
     public void CreateBagPratiti(PratitiType type){
-        BagPratiti pratiti = new BagPratiti(type);
+        SetAssetFactory();
+        PratitiData data = _factory.LoadPratitiData(type);
+        BagPratiti pratiti = new BagPratiti(type, data);
         pratiti._ID = _bagPratitis.Count; // 設定帕拉緹緹ID
         _bagPratitis.Add(pratiti);
+        Debug.Log("獲得帕拉提提" + pratiti._ID);
 
+        PratitiUI.Refresh(); // 翻新帕拉提提介面
+
+    }
+
+    public void SetAssetFactory(){
+        if(_factory == null)
+            _factory = MainFactory.GetAssetFactory();
     }
 
     public void SetStartPratiti(int ID){
@@ -38,5 +69,24 @@ public class PratitiSystem : IGameSystem
 
         // 刷新UI介面
         PratitiUI.Refresh();
+    }
+
+    public void SetSelectedPratiti(int ID){
+        if(ID > _bagPratitis.Count){
+            Debug.LogError("設定初始帕拉提提超過包包上限");
+            return;
+        }
+        _selectedPratiti = _bagPratitis[ID];
+
+        // 刷新UI介面
+        PratitiUI.Refresh();
+    }
+
+    // public void OnStickerEquiped( Sticker sticker){
+    //     _selectedPratiti.SetSticker(sticker, _SelectedStickerID);
+    // }
+    // 當貼紙被裝備在帕拉提提上面
+    public void OnStickerEquiped( object sender, StickerEquipedEventArgs e){
+        _selectedPratiti.SetSticker(e._sticker, _SelectedStickerID);
     }
 }

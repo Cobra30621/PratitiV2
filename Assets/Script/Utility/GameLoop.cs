@@ -68,4 +68,15 @@ public class GameLoop : MonoBehaviour
 		GameMediator.Instance.BackToMap();
 	}
 
+	public void CreatePratiti(PratitiType type){
+		GameMediator.Instance.CreateBagPratiti(type);
+	}
+
+	public void AddPratiti(){
+		PratitiType type = PratitiType.Pig;
+		GameMediator.Instance.CreateBagPratiti(type);
+	}
+
+
+
 }

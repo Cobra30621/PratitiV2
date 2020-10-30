@@ -4,8 +4,51 @@ using System.Collections;
 // 從專案的Resource中,將Unity Asset實體化成GameObject的工廠類別
 public class ResourceAssetFactory : IAssetFactory 
 {
+	public const string PratitiDataPath = "PratitiData/";
+	public const string StickerDataPath = "StickerData/";
 	public const string TalkIconPath = "TalkIcon/";
 	public const string PratitiSpritePath = "Pratiti/";
+	
+
+	public override PratitiData LoadPratitiData(PratitiType type){
+		string pratitiName = "feather";
+        switch(type){
+            case PratitiType.Feather:
+                pratitiName = "feather";
+                break;
+            case PratitiType.Pig:
+                pratitiName = "pig";
+                break;
+			case PratitiType.Cloud:
+                pratitiName = "cloud";
+                break;
+            default:
+                Debug.LogError("找不到Icon");
+                break;
+        }
+
+		return Resources.Load(  PratitiDataPath + pratitiName,typeof(PratitiData)) as PratitiData;
+	}
+
+	public override StickerData LoadStickerData(StickerType type){
+		string name = "feather";
+        switch(type){
+            case StickerType.Attr:
+                name = "attr";
+                break;
+			case StickerType.Hp:
+                name = "hp";
+                break;
+			case StickerType.Def:
+                name = "def";
+                break;
+            default:
+                Debug.LogError("找不到StickerData");
+                break;
+        }
+
+		return Resources.Load(  StickerDataPath + name,typeof(StickerData)) as StickerData;
+	}
 
 	// 讀取照片
 	public override Sprite LoadPratitiSprite(PratitiType type){
