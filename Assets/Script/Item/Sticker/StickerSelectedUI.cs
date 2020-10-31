@@ -40,36 +40,43 @@ public class StickerSelectedUI: MonoBehaviour
 
     public void Initialize(){
         _itemSystem = GameMediator.Instance.GetItemSystem();
-        Open();
-        CreateAllPratitiBars();
+        _stickers = _itemSystem._stickers;
+        CreateAllStickerBars();
+        Hide();
     }   
 
     // 開啟UI方式
-
     public static void Show(){
         instance.Open();
     }
     public void Open(){
         gameObject.SetActive(true);
         _stickers = _itemSystem._stickers;
-        // CreateAllPratitiBars();
+        //CreateAllStickerBars();
+        RefreshAllStickerBars();
     }
 
     public void Hide(){
         gameObject.SetActive(false);
-        RemoveAllPratitiBars();
     }
 
-
-
-    public void RemoveAllPratitiBars(){
-        Debug.Log("刪除所有PratitiBars");
+    public void RefreshAllStickerBars(){
+        foreach(StickerSelectedBar bar in _selectedBars){
+            bar.RefreshInfo();
+        }
     }
 
-    public void CreateAllPratitiBars(){
-        // RemoveAllPratitiBarObject();
+    public void RemoveAllStickerBars(){
+        foreach(StickerSelectedBar bar in _selectedBars){
+            Destroy(bar.gameObject);
+        }
+
+    }
+
+    public void CreateAllStickerBars(){
+        // RemoveAllStickerBars();
         foreach(Sticker sticker in _stickers){
-            CreatePratitiBar(sticker);
+            CreateStickerBar(sticker);
         }
 
     }
@@ -77,7 +84,7 @@ public class StickerSelectedUI: MonoBehaviour
     /// <summary>
     /// 製作一個PratitiBar
     /// </summary>
-    public void CreatePratitiBar(Sticker sticker)
+    public void CreateStickerBar(Sticker sticker)
     {
         var g = Instantiate(stickerSelectedBarPrefab, transform_SelectedBar);
         _barGameObjects.Add(g);
@@ -95,6 +102,7 @@ public class StickerSelectedUI: MonoBehaviour
         {
             _stickerEquiped(this, new StickerEquipedEventArgs(sticker));
             Hide();
+            PratitiUI.Refresh(); // 更新帕拉提提介面
         }
             
     }

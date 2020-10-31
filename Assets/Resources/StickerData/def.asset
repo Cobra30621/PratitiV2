@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stickerType: 1
   _name: "\u9632\u79A6\u8CBC\u7D19"
-  _descript: 
+  _descript: "\u9632\u79A6+10%"
   _icon: {fileID: 21300000, guid: df6f1706ab23741e7b670d770f8ef616, type: 3}
   _addAttr: 0.1

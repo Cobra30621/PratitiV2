@@ -11,6 +11,7 @@ public class PratitiSystem : IGameSystem
     public List<BagPratiti> _bagPratitis = new List<BagPratiti>();
     public BagPratiti _startPratiti; // 出戰的帕拉提提
     public BagPratiti _selectedPratiti; // 被選中的帕拉提提
+    public MapPratiti _enemyPratiti; // 敵方的帕拉提提
     
     // 裝備相關
     public int _SelectedStickerID;
@@ -31,10 +32,11 @@ public class PratitiSystem : IGameSystem
         // CreateBagPratiti(PratitiType.Feather);
         CreateAllPratiti();
         // 超級爛的方法
-        _stickerSelectedUI = GameObject.Find("StickerSelectedPanel").GetComponent<StickerSelectedUI>();
+        _stickerSelectedUI = GameMediator.Instance.GetStickerSelectedUI();
         _stickerSelectedUI._stickerEquiped += OnStickerEquiped;
 
         _startPratiti = _bagPratitis[0];
+        _selectedPratiti = _bagPratitis[0];
     }
 
     public void CreateAllPratiti(){

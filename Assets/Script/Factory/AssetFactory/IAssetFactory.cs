@@ -9,8 +9,7 @@ public abstract class IAssetFactory
 
 	// 讀取貼紙資料
 	public abstract StickerData LoadStickerData(StickerType type);
-	// 讀取照片
-	public abstract Sprite LoadPratitiSprite(PratitiType type); 
+	
 
 	// 產生物件
 	public abstract GameObject LoadTalkIcon( string AssetName );

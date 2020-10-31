@@ -23,6 +23,9 @@ public class GameMediator
 	PratitiSystem m_pratitiSystem = null;
 	ItemSystem m_itemSystem = null;
 
+	// 遊戲UI
+	public StickerSelectedUI _stickerSelectedUI;
+
 	private GameMediator(){}
 
 	public void Initinal(){
@@ -31,6 +34,8 @@ public class GameMediator
 		m_mapSystem = new MapSystem(this);
 		m_pratitiSystem = new PratitiSystem(this);
 		m_itemSystem = new ItemSystem(this);
+
+		_stickerSelectedUI = GameObject.Find("StickerSelectedPanel").GetComponent<StickerSelectedUI>();
 	}
 
 	public void Update(){
@@ -161,23 +166,53 @@ public class GameMediator
 		return m_pratitiSystem._startPratiti;
 	}
 
+	public void SetEnemyPratiti(MapPratiti pratiti){
+		m_pratitiSystem._enemyPratiti = pratiti;
+	}
+
 	public void CreateBagPratiti(PratitiType type){
 		m_pratitiSystem.CreateBagPratiti(type);
 	}
-
 
 	public void CreateAllPratitiTest(){
 		m_pratitiSystem.CreateAllPratiti();
 	}
 
+	// 戰鬥系統用
+	public PratitiAttr GetPlayerAttr(){
+		if(m_pratitiSystem == null || m_pratitiSystem._startPratiti == null)
+			return m_pratitiSystem._startPratiti._pratitiAttr;
+		else{
+			Debug.Log("Player的資料是空的");
+			return null;
+		}
+	}
+
+	public PratitiAttr GetEnemyAttr(){
+		if(m_pratitiSystem == null || m_pratitiSystem._enemyPratiti == null)
+			return m_pratitiSystem._enemyPratiti._pratitiAttr;
+		else{
+			Debug.Log("Enemy的資料是空的");
+			return null;
+		}
+	}
+
 	// ================================================
-	// =================TalkObjectSystem===============
+	// =================ItemSystem===============
 	// ================================================
 	public ItemSystem GetItemSystem(){
 		return m_itemSystem;
 	}
 
-	
+	// ================================================
+	// =================StickerSelectedUI======================
+	// ================================================
 
+	public StickerSelectedUI GetStickerSelectedUI(){
+		if(_stickerSelectedUI == null)
+			_stickerSelectedUI = GameObject.Find("StickerSelectedPanel").GetComponent<StickerSelectedUI>();
+
+		return _stickerSelectedUI;
+	}
 
 }

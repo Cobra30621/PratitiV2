@@ -21,14 +21,15 @@ public class ItemSystem : IGameSystem
     public override void Initialize(){
         _factory =  MainFactory.GetAssetFactory();
         CreateAllSticker();
-        AddSticker(StickerType.Attr , 10);
-        AddSticker(StickerType.Def , 10);
-        AddSticker(StickerType.Hp , 10);
+        Debug.Log("初始化itemSystem");
+        AddSticker(StickerType.Attr , 3);
+        AddSticker(StickerType.Def , 3);
+        AddSticker(StickerType.Hp , 3);
         // CreateSticker(StickerType.Attr);
 
         // 事件相關
         // 超級爛的方法
-        _stickerSelectedUI = GameObject.Find("StickerSelectedPanel").GetComponent<StickerSelectedUI>();
+        _stickerSelectedUI = GameMediator.Instance.GetStickerSelectedUI();
         _stickerSelectedUI._stickerEquiped += OnStickerEquiped;
         // _startPratiti = _bagPratitis[0];
     }
@@ -50,9 +51,10 @@ public class ItemSystem : IGameSystem
     public void AddSticker(StickerType type, int addNum){
         foreach(Sticker sticker in _stickers){
             if(sticker._stickerType == type)
+            {
                 sticker.count += addNum;
-            else
-                Debug.Log("找不到貼紙");
+                Debug.Log($"{type}貼紙增加{addNum}");
+            }
         }
     }
 

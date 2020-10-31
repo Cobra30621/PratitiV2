@@ -29,6 +29,7 @@ public class StickerSelectedBar : MonoBehaviour
     public void RefreshInfo(){
         img_icon.sprite = _sticker._stickerData._icon;
         lab_count.text = "" + _sticker.count;
+        Debug.Log($"{_sticker._stickerData._name}有{_sticker.count}個");
         UpdateButtonState();
         
     }

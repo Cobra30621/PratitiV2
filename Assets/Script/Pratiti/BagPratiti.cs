@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Fungus;
 
 public class BagPratiti
 {
@@ -32,11 +31,15 @@ public class BagPratiti
         {
             _stickers[id] = sticker;
             sticker.SetPratiti(this);
+            SetStickerPlusData();
         }
         else{
             Debug.LogError($"StickerID超出範圍。ID = {id}");
         }
-        
+    }
+
+    public void SetStickerPlusData(){
+        _pratitiAttr.SetPlusData(_stickers);
     }
 
 

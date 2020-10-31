@@ -60,13 +60,14 @@ public class PratitiUI: MonoBehaviour
     public void RefreshInfo(){
         GetPratitiInfo();
         // CreateAllPratitiBars(); // 翻新Bar
+        PratitiAttr pratitiAttr = _selectedPratiti._pratitiAttr;
 
         Debug.Log("翻新屆面");
         lab_name.text = _selectedPratiti._name;
-        lab_Attr.text = "攻擊力:" + _selectedPratiti._pratitiAttr.rawAttr ;
-        lab_Hp.text = "血量:" + _selectedPratiti._pratitiAttr.rawHp ;
-        lab_Def.text =  "防禦:" + _selectedPratiti._pratitiAttr.rawDef ;
-        lab_Speed.text = "速度:" + _selectedPratiti._pratitiAttr.rawSpeed ;
+        lab_Attr.text = $"攻擊力: {pratitiAttr.rawAttr} <color=#8E00F3>+ {pratitiAttr.plusAttr}</color>" ;
+        lab_Hp.text = $"血量: {pratitiAttr.rawHp} <color=#8E00F3>+ {pratitiAttr.plusHp}</color>" ;
+        lab_Def.text =  $"防禦: {pratitiAttr.rawDef} <color=#8E00F3>+ {pratitiAttr.plusDef}</color>"  ;
+        lab_Speed.text = $"速度: {pratitiAttr.rawSpeed} <color=#8E00F3>+ {pratitiAttr.plusSpeed}</color>"  ;
 
         img_icon.sprite = _selectedPratiti._pratitiData._icon;
 
@@ -112,17 +113,10 @@ public class PratitiUI: MonoBehaviour
         _pratitiBars.Add(l);
     }
 
-    public void RemoveAllPratitiBarObject(){
-        // List<GameObject> gameObjects = new List<GameObject>();
-        // foreach(PratitiBar bar in _pratitiBars){
-        //     gameObjects.Add(bar.gameObject);
-        // }
-
-        // Debug.Log("刪掉帕拉提提外面");
-        // foreach(GameObject gameObject in gameObjects){
-        //     Debug.Log("刪掉帕拉提提");
-        //     Destroy(gameObject);
-        // }
+    public void RemoveAllPratitiBarObject(){       
+        foreach(PratitiBar bar in _pratitiBars){
+            Destroy(bar.gameObject);
+        }
     }
 
     // 開啟介面方法
