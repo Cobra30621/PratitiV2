@@ -42,7 +42,7 @@ public class StickerSelectedUI: MonoBehaviour
         _itemSystem = GameMediator.Instance.GetItemSystem();
         _stickers = _itemSystem._stickers;
         CreateAllStickerBars();
-        Hide();
+        Close();
     }   
 
     // 開啟UI方式
@@ -56,7 +56,7 @@ public class StickerSelectedUI: MonoBehaviour
         RefreshAllStickerBars();
     }
 
-    public void Hide(){
+    public void Close(){
         gameObject.SetActive(false);
     }
 
@@ -101,7 +101,7 @@ public class StickerSelectedUI: MonoBehaviour
         if(_stickerEquiped != null)
         {
             _stickerEquiped(this, new StickerEquipedEventArgs(sticker));
-            Hide();
+            Close();
             PratitiUI.Refresh(); // 更新帕拉提提介面
         }
             

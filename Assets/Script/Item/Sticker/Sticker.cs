@@ -19,6 +19,14 @@ public class Sticker : IItem{
 
     }
 
+    public Sticker(StickerType type){
+        _stickerType = type;
+        IAssetFactory _factory =  MainFactory.GetAssetFactory();
+
+        _stickerData = _factory.LoadStickerData(type);
+        _isWear = false;
+    }
+
     public void SetPratiti(BagPratiti pratiti){
         _stickerOwner = pratiti;
         _isWear = true;

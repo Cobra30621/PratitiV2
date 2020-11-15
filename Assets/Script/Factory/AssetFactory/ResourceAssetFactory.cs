@@ -42,6 +42,9 @@ public class ResourceAssetFactory : IAssetFactory
 			case StickerType.Def:
                 name = "def";
                 break;
+			case StickerType.Null:
+                name = "null";
+                break;
             default:
                 Debug.LogError("找不到StickerData");
                 break;

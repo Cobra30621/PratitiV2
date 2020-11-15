@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum StickerType{
-    Attr, Def, Hp
+    Attr, Def, Hp, Null
 }
 
 

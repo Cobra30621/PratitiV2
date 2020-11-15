@@ -93,6 +93,8 @@ public class PratitiAttr
 			case StickerType.Def:
                 plusDef += Mathf.FloorToInt( rawDef * plus);
                 break;
+            case StickerType.Null:
+                break;
             default:
                 Debug.LogError("裝備時找不到StickerType");
                 break;

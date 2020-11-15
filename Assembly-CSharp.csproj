@@ -731,8 +731,10 @@
      <Compile Include="Assets\Script\Factory\AssetFactory\IAssetFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\MainFactory.cs" />
      <Compile Include="Assets\Script\Factory\AssetFactory\ResourceAssetFactory.cs" />
+     <Compile Include="Assets\Script\FungusCommand\AddPratiti.cs" />
      <Compile Include="Assets\Script\FungusCommand\EnterBattle.cs" />
      <Compile Include="Assets\Script\FungusCommand\FadeSceenMethon.cs" />
+     <Compile Include="Assets\Script\FungusCommand\GetSticker.cs" />
      <Compile Include="Assets\Script\FungusCommand\MovePlayer.cs" />
      <Compile Include="Assets\Script\Item\IItem.cs" />
      <Compile Include="Assets\Script\Item\ItemSystem.cs" />
@@ -767,6 +769,7 @@
      <Compile Include="Assets\Script\Utility\GameLoop.cs" />
      <Compile Include="Assets\Script\Utility\GameMediator.cs" />
      <Compile Include="Assets\Script\Utility\IGameSystem.cs" />
+     <Compile Include="Assets\Script\Utility\UIManager.cs" />
      <None Include="Assets\Fungus\Thirdparty\ThirdPartyNotices.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\LineBreaking Leading Characters.txt" />

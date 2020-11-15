@@ -51,7 +51,7 @@ public class PratitiSystem : IGameSystem
         BagPratiti pratiti = new BagPratiti(type, data);
         pratiti._ID = _bagPratitis.Count; // 設定帕拉緹緹ID
         _bagPratitis.Add(pratiti);
-        Debug.Log("獲得帕拉提提" + pratiti._ID);
+        Debug.Log("獲得編號" + pratiti._ID + $"{type}類帕拉提提");
 
         PratitiUI.Refresh(); // 翻新帕拉提提介面
 
@@ -68,9 +68,14 @@ public class PratitiSystem : IGameSystem
             return;
         }
         _startPratiti = _bagPratitis[ID];
+        Debug.Log($"首發帕拉提提編號{ID}");
 
         // 刷新UI介面
         PratitiUI.Refresh();
+    }
+
+    public int GetStartPratitiID(){
+        return _startPratiti._ID;
     }
 
     public void SetSelectedPratiti(int ID){
@@ -82,6 +87,10 @@ public class PratitiSystem : IGameSystem
 
         // 刷新UI介面
         PratitiUI.Refresh();
+    }
+
+    public int GetSelectedPratitiID(){
+        return _selectedPratiti._ID;
     }
 
     // public void OnStickerEquiped( Sticker sticker){

@@ -36,9 +36,9 @@ public class ItemSystem : IGameSystem
 
     public void CreateAllSticker(){
         foreach (StickerType type in Enum.GetValues( typeof( StickerType ) )){
-            CreateSticker(type);
+            if (type != StickerType.Null)
+                CreateSticker(type);
         }
-        
     }
 
     public void CreateSticker(StickerType type){
@@ -57,9 +57,6 @@ public class ItemSystem : IGameSystem
             }
         }
     }
-
-
-    
 
     // 當貼紙被裝備在帕拉提提上面
     public void OnStickerEquiped( object sender, StickerEquipedEventArgs e){

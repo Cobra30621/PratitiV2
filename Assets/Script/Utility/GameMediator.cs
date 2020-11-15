@@ -154,6 +154,10 @@ public class GameMediator
 		return m_pratitiSystem._selectedPratiti;
 	}
 
+	public int GetSelectedPratitiID(){
+        return m_pratitiSystem.GetSelectedPratitiID();
+    }
+
 	public PratitiSystem GetPratitiSystem(){
 		return m_pratitiSystem;
 	}
@@ -161,6 +165,11 @@ public class GameMediator
 	public void SetStartPratiti(int ID){
 		m_pratitiSystem.SetStartPratiti(ID);
 	}
+
+	public int GetStartPratitiID(){
+        return m_pratitiSystem.GetStartPratitiID();
+	}
+	
 
 	public BagPratiti GetStartPratiti(){
 		return m_pratitiSystem._startPratiti;
@@ -202,6 +211,10 @@ public class GameMediator
 	// ================================================
 	public ItemSystem GetItemSystem(){
 		return m_itemSystem;
+	}
+
+	public void AddSticker(StickerType type, int addNum){
+		m_itemSystem.AddSticker(type, addNum);
 	}
 
 	// ================================================

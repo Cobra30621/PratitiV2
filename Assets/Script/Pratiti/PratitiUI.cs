@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 public class PratitiUI: MonoBehaviour
 {
     private static PratitiUI instance;
+
     // UI
+    [SerializeField] private GameObject _panel;
+
     [SerializeField] private Text lab_name;
     [SerializeField] private Text lab_Attr;
     [SerializeField] private Text lab_Def;
@@ -48,13 +51,20 @@ public class PratitiUI: MonoBehaviour
         RefreshInfo();
     }   
 
+    public void Open(){
+        _panel.SetActive(true);
+        RefreshInfo();
+    }
+
+    public void Close(){
+        _panel.SetActive(false);
+    }
+
     public static void Refresh(){
         if(instance != null)
         {
             instance.RefreshInfo();
         }
-        
-        
     }
 
     public void RefreshInfo(){
@@ -83,6 +93,13 @@ public class PratitiUI: MonoBehaviour
                 img_stickers[i].sprite = null;
             }
         }
+
+        CreateAllPratitiBars();
+
+        // foreach (PratitiBar bar in _pratitiBars)
+        // {
+        //     bar.RefreshInfo();
+        // }
         // img_icon.sprite = factory.LoadPratitiSprite(_selectedPratiti._pratitiType);
     }
 
@@ -111,23 +128,34 @@ public class PratitiUI: MonoBehaviour
         var l = g.GetComponent<PratitiBar>();
         l.Initialize(pratiti); 
         _pratitiBars.Add(l);
+        Debug.Log($"產生{pratiti._pratitiType}類，編號{pratiti._ID}的帕拉提提Bar");
     }
 
     public void RemoveAllPratitiBarObject(){       
         foreach(PratitiBar bar in _pratitiBars){
-            Destroy(bar.gameObject);
+            if(bar != null)
+                Destroy(bar.gameObject);
         }
     }
 
     // 開啟介面方法
     public void OnStickerSelected(int index){
-        if(_selectedPratiti._stickers[index] == null)
+        // if(_selectedPratiti._stickers[index] == null)
+        // {
+        //     StickerSelectedUI.Show(); // 不太好的UI管理方法
+        //     _pratitiSystem._SelectedStickerID = index;
+        // }
+        // else{
+        //     Debug.Log("帕拉提提已經裝了貼紙");
+        // }
+        StickerType type = _selectedPratiti._stickers[index]._stickerType;
+        if(type == StickerType.Null)
         {
             StickerSelectedUI.Show(); // 不太好的UI管理方法
             _pratitiSystem._SelectedStickerID = index;
         }
         else{
-            Debug.Log("帕拉提提已經裝了貼紙");
+            Debug.Log($"帕拉提提的第{index}格已經裝了{type}貼紙");
         }
     }
 

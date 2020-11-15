@@ -23,7 +23,15 @@ public class BagPratiti
         _pratitiAttr = new PratitiAttr(type, data);
 
         _name  = data._name;
- 
+        InitialStickers();
+    }
+
+    // 初始化所有的貼紙
+    public void InitialStickers(){
+        for (int i = 0; i < 3 ; i++)
+        {
+            _stickers[i] = new Sticker(StickerType.Null);
+        }
     }
 
     public void SetSticker(Sticker sticker, int id){
