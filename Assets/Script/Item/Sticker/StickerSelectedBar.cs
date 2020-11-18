@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class StickerSelectedBar : MonoBehaviour
 {
     
+    [SerializeField] private Text lab_title;
     [SerializeField] private Text lab_count;
-    private bool whetherSelect; // 是否被選擇
 
     [SerializeField] private Image img_icon;
     [SerializeField] private Button butt_select;

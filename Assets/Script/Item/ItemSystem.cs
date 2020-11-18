@@ -8,10 +8,17 @@ using System;
 public class ItemSystem : IGameSystem
 {
     public List<Sticker> _stickers = new List<Sticker>();
+    public List<StickerChip> _stickerChips = new List<StickerChip>();
+
+    public Dictionary<StickerType, Sticker> _dicStickers = new Dictionary<StickerType, Sticker>();
+    public Dictionary<StickerType, StickerChip> _dicStickerChips = new Dictionary<StickerType, StickerChip>();
+
     public Sticker _selectedSticker;
     private IAssetFactory _factory;
     // 事件相關
     public StickerSelectedUI _stickerSelectedUI;
+
+    public int CompositeCount = 5;
 
     public ItemSystem(GameMediator mediator):base(mediator)
 	{
@@ -25,7 +32,12 @@ public class ItemSystem : IGameSystem
         AddSticker(StickerType.Attr , 3);
         AddSticker(StickerType.Def , 3);
         AddSticker(StickerType.Hp , 3);
-        // CreateSticker(StickerType.Attr);
+
+        CreateAllStickerChip();
+
+        AddStickerChip(StickerType.Attr , 13);
+        AddStickerChip(StickerType.Def , 13);
+        AddStickerChip(StickerType.Def , 13);
 
         // 事件相關
         // 超級爛的方法
@@ -34,6 +46,15 @@ public class ItemSystem : IGameSystem
         // _startPratiti = _bagPratitis[0];
     }
 
+    // CompositeStickerChip
+
+    public void CompositeStickerChip(StickerType type){
+        AddStickerChip(type, - CompositeCount );
+        AddSticker(type, 1);
+    }
+
+
+    // Sticker
     public void CreateAllSticker(){
         foreach (StickerType type in Enum.GetValues( typeof( StickerType ) )){
             if (type != StickerType.Null)
@@ -45,6 +66,7 @@ public class ItemSystem : IGameSystem
         StickerData data = _factory.LoadStickerData(type);
         Sticker sticker = new Sticker(type, data);
         _stickers.Add(sticker); 
+        _dicStickers.Add(type, sticker);
         Debug.Log($"創造一個{data._name}");
     }
 
@@ -53,6 +75,32 @@ public class ItemSystem : IGameSystem
             if(sticker._stickerType == type)
             {
                 sticker.count += addNum;
+                Debug.Log($"{type}貼紙增加{addNum}");
+            }
+        }
+    }
+
+    // StickerChip
+    public void CreateAllStickerChip(){
+        foreach (StickerType type in Enum.GetValues( typeof( StickerType ) )){
+            if (type != StickerType.Null)
+                CreateStickerChip(type);
+        }
+    }
+
+    public void CreateStickerChip(StickerType type){
+        StickerData data = _factory.LoadStickerData(type);
+        StickerChip stickerChip = new StickerChip(type, data._chipIcon );
+        _stickerChips.Add(stickerChip); 
+        _dicStickerChips.Add(type, stickerChip );
+        Debug.Log($"創造一個{data._name}Chip");
+    }
+
+    public void AddStickerChip(StickerType type, int addNum){
+       foreach(StickerChip stickerChip in _stickerChips){
+            if(stickerChip._stickerType == type)
+            {
+                stickerChip.count += addNum;
                 Debug.Log($"{type}貼紙增加{addNum}");
             }
         }

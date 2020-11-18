@@ -736,9 +736,12 @@
      <Compile Include="Assets\Script\FungusCommand\FadeSceenMethon.cs" />
      <Compile Include="Assets\Script\FungusCommand\GetSticker.cs" />
      <Compile Include="Assets\Script\FungusCommand\MovePlayer.cs" />
+     <Compile Include="Assets\Script\Item\BagUI.cs" />
      <Compile Include="Assets\Script\Item\IItem.cs" />
      <Compile Include="Assets\Script\Item\ItemSystem.cs" />
+     <Compile Include="Assets\Script\Item\Sticker\CompositeStickerBar.cs" />
      <Compile Include="Assets\Script\Item\Sticker\Sticker.cs" />
+     <Compile Include="Assets\Script\Item\Sticker\StickerChip.cs" />
      <Compile Include="Assets\Script\Item\Sticker\StickerData.cs" />
      <Compile Include="Assets\Script\Item\Sticker\StickerSelectedBar.cs" />
      <Compile Include="Assets\Script\Item\Sticker\StickerSelectedUI.cs" />
