@@ -11,7 +11,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject GO_StickerSelectedUI;
     private StickerSelectedUI _stickerSelectedUI;
 
+    [SerializeField] private GameObject GO_BagUI;
+    private BagUI _BagUI;
+
     // 按鍵
+    [SerializeField]
+    KeyCode keyCode_OpenBagUI;
     [SerializeField]
     KeyCode keyCode_OpenPratitiUI;
     [SerializeField]
@@ -34,6 +39,7 @@ public class UIManager : MonoBehaviour
     public void InitUI(){
         _pratitiUI = GO_pratitiUI.GetComponent<PratitiUI>();
         _stickerSelectedUI = GO_StickerSelectedUI.GetComponent<StickerSelectedUI>();
+        _BagUI = GO_BagUI.GetComponent<BagUI>();
     }
 
     public void InputProcess(){
@@ -41,6 +47,11 @@ public class UIManager : MonoBehaviour
             _pratitiUI.Open();
         if(Input.GetKeyDown(keyCode_ClosePratitiUI))
             _pratitiUI.Close();
+
+        if(Input.GetKeyDown(keyCode_OpenBagUI))
+            _BagUI.Open();
+        if(Input.GetKeyDown(keyCode_ClosePratitiUI))
+            _BagUI.Close();
         
     }
 }

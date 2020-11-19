@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+
+[System.Serializable]
+public enum BagUIPanel{Material=0, Sticker, Stone};
+
 public class BagUI : MonoBehaviour
 {
     private ItemSystem _itemSystem;
@@ -12,6 +16,16 @@ public class BagUI : MonoBehaviour
 
     [SerializeField] GameObject compositeStickerBarPrefab;
     [SerializeField] Transform transform_book;
+
+    
+    [SerializeField] GameObject _mainPanel;
+    // 分頁
+    private Dictionary<BagUIPanel , GameObject> _panels = new Dictionary<BagUIPanel , GameObject>();
+    [SerializeField] GameObject materialPanel;
+    [SerializeField] GameObject stickerPanel;
+    [SerializeField] GameObject stonePanel;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +34,12 @@ public class BagUI : MonoBehaviour
 
     public void Initialize(){
         _itemSystem = GameMediator.Instance.GetItemSystem();
+        // 將所有分頁的panel加入管禮器
+        _panels.Add(BagUIPanel.Material, materialPanel);
+        _panels.Add(BagUIPanel.Sticker, stickerPanel);
+        _panels.Add(BagUIPanel.Stone, stonePanel);
+
+        // stickerpanel 
         _dicStickers = _itemSystem._dicStickers;
         _dicStickerChips = _itemSystem._dicStickerChips;
 
@@ -27,17 +47,52 @@ public class BagUI : MonoBehaviour
         RefreshInfo();
     }  
 
+    //===================================================
+    //=================開啟包包介面========================
+    //===================================================
+    public void Open(){
+        _mainPanel.SetActive(true);
+        SelectPanel ( BagUIPanel.Sticker);
+        RefreshInfo();
+    }
+
+    public void Close(){
+        _mainPanel.SetActive(false);
+    }
+
+    //===================================================
+    //=================開啟分頁Panel方法===================
+    //===================================================
+
+    public void SelectPanel (int index){
+        SelectPanel( (BagUIPanel) index);
+    }
+
+    public void SelectPanel (BagUIPanel key){
+        foreach (GameObject panel in _panels.Values)
+        {
+            panel.SetActive(false);
+        }
+        _panels[key].SetActive(true);
+        RefreshInfo();
+    }
+
+
     public void RefreshInfo(){
+        // StickerPanel的資訊
         foreach(CompositeStickerBar bar in _compostierStickerBars){
             bar.RefreshInfo();
         }
     }
 
+    //===================================================
+    //=================開啟分頁StickerPanel方法============
+    //===================================================
+
+
     public void CompositeStickerChip(StickerType type){
         _itemSystem.CompositeStickerChip(type);
     }
-
-
 
     public void CreateAllCompostieStickerBars(){
         foreach (StickerType type in Enum.GetValues( typeof( StickerType ) )){
