@@ -735,6 +735,7 @@
      <Compile Include="Assets\Script\FungusCommand\EnterBattle.cs" />
      <Compile Include="Assets\Script\FungusCommand\FadeSceenMethon.cs" />
      <Compile Include="Assets\Script\FungusCommand\GetSticker.cs" />
+     <Compile Include="Assets\Script\FungusCommand\GetStickerChip.cs" />
      <Compile Include="Assets\Script\FungusCommand\MovePlayer.cs" />
      <Compile Include="Assets\Script\Item\BagUI.cs" />
      <Compile Include="Assets\Script\Item\IItem.cs" />

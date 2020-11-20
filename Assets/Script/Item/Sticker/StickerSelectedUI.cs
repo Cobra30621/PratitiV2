@@ -29,6 +29,8 @@ public class StickerSelectedUI: MonoBehaviour
     [SerializeField] GameObject stickerSelectedBarPrefab;
     [SerializeField] Transform transform_SelectedBar;
 
+    [SerializeField] public GameObject _mainPanel;
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
@@ -50,14 +52,14 @@ public class StickerSelectedUI: MonoBehaviour
         instance.Open();
     }
     public void Open(){
-        gameObject.SetActive(true);
+        _mainPanel.SetActive(true);
         _stickers = _itemSystem._stickers;
         //CreateAllStickerBars();
         RefreshAllStickerBars();
     }
 
     public void Close(){
-        gameObject.SetActive(false);
+        _mainPanel.SetActive(false);
     }
 
     public void RefreshAllStickerBars(){
