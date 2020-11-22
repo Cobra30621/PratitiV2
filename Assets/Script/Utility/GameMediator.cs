@@ -176,7 +176,7 @@ public class GameMediator
 	}
 
 	public void SetEnemyPratiti(MapPratiti pratiti){
-		m_pratitiSystem._enemyPratiti = pratiti;
+		m_pratitiSystem.SetEnemyPratiti(pratiti) ;
 	}
 
 	public void CreateBagPratiti(PratitiType type){
@@ -204,6 +204,11 @@ public class GameMediator
 			Debug.Log("Enemy的資料是空的");
 			return null;
 		}
+	}
+
+	// 獎勵界面用
+	public LootTable GetLootTable(){
+		return m_pratitiSystem._lootTable;
 	}
 
 	// ================================================

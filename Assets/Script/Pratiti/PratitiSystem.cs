@@ -12,6 +12,7 @@ public class PratitiSystem : IGameSystem
     public BagPratiti _startPratiti; // 出戰的帕拉提提
     public BagPratiti _selectedPratiti; // 被選中的帕拉提提
     public MapPratiti _enemyPratiti; // 敵方的帕拉提提
+    public LootTable _lootTable; // 本次戰鬥料落物品
     
     // 裝備相關
     public int _SelectedStickerID;
@@ -91,6 +92,14 @@ public class PratitiSystem : IGameSystem
 
     public int GetSelectedPratitiID(){
         return _selectedPratiti._ID;
+    }
+
+    public void SetEnemyPratiti(MapPratiti pratiti){
+        _enemyPratiti = pratiti;
+        if (pratiti._lootTable != null)
+            _lootTable = pratiti._lootTable;
+        else
+            Debug.LogError("這隻帕拉提提沒有放掉落物品");
     }
 
     // public void OnStickerEquiped( Sticker sticker){

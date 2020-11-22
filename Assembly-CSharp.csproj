@@ -740,6 +740,10 @@
      <Compile Include="Assets\Script\Item\BagUI.cs" />
      <Compile Include="Assets\Script\Item\IItem.cs" />
      <Compile Include="Assets\Script\Item\ItemSystem.cs" />
+     <Compile Include="Assets\Script\Item\Loot\EndBattleUI.cs" />
+     <Compile Include="Assets\Script\Item\Loot\Loot.cs" />
+     <Compile Include="Assets\Script\Item\Loot\LootTable.cs" />
+     <Compile Include="Assets\Script\Item\Loot\LootUnitBar.cs" />
      <Compile Include="Assets\Script\Item\Sticker\CompositeStickerBar.cs" />
      <Compile Include="Assets\Script\Item\Sticker\Sticker.cs" />
      <Compile Include="Assets\Script\Item\Sticker\StickerChip.cs" />
@@ -773,6 +777,7 @@
      <Compile Include="Assets\Script\Utility\GameLoop.cs" />
      <Compile Include="Assets\Script\Utility\GameMediator.cs" />
      <Compile Include="Assets\Script\Utility\IGameSystem.cs" />
+     <Compile Include="Assets\Script\Utility\Test.cs" />
      <Compile Include="Assets\Script\Utility\UIManager.cs" />
      <None Include="Assets\Fungus\Thirdparty\ThirdPartyNotices.txt" />
      <None Include="Assets\Fungus\Thirdparty\TextMeshPro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

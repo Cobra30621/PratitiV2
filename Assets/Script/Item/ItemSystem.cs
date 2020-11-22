@@ -14,6 +14,7 @@ public class ItemSystem : IGameSystem
     public Dictionary<StickerType, StickerChip> _dicStickerChips = new Dictionary<StickerType, StickerChip>();
 
     public Sticker _selectedSticker;
+    
     private IAssetFactory _factory;
     // 事件相關
     public StickerSelectedUI _stickerSelectedUI;
@@ -29,15 +30,15 @@ public class ItemSystem : IGameSystem
         _factory =  MainFactory.GetAssetFactory();
         CreateAllSticker();
         Debug.Log("初始化itemSystem");
-        AddSticker(StickerType.Attr , 3);
-        AddSticker(StickerType.Def , 3);
-        AddSticker(StickerType.Hp , 3);
+        // AddSticker(StickerType.Attr , 3);
+        // AddSticker(StickerType.Def , 3);
+        // AddSticker(StickerType.Hp , 3);
 
         CreateAllStickerChip();
 
-        AddStickerChip(StickerType.Attr , 13);
-        AddStickerChip(StickerType.Def , 13);
-        AddStickerChip(StickerType.Def , 13);
+        // AddStickerChip(StickerType.Attr , 13);
+        // AddStickerChip(StickerType.Def , 13);
+        // AddStickerChip(StickerType.Def , 13);
 
         // 事件相關
         // 超級爛的方法
@@ -52,6 +53,9 @@ public class ItemSystem : IGameSystem
         AddStickerChip(type, - CompositeCount );
         AddSticker(type, 1);
     }
+
+    // Item
+    // public void AddItem(Itemtype itemtype)
 
 
     // Sticker

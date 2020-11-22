@@ -138,6 +138,8 @@
      <Compile Include="Assets\Fungus\Thirdparty\FungusLua\Thirdparty\JSON\Editor\JSONChecker.cs" />
      <Compile Include="Assets\Fungus\Thirdparty\LineEndings\Editor\LineEndingsEditMenu.cs" />
      <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Editor\SfxrGenerator.cs" />
+     <Compile Include="Assets\Script\Editor\LootPropetyDrawer.cs" />
+     <Compile Include="Assets\Script\Editor\LootTableEditor.cs" />
  <Reference Include="Cinemachine">
  <HintPath>/Users/cobra/Unity專案/PratitiV2/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>

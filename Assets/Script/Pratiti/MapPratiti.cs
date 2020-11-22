@@ -9,6 +9,7 @@ public class MapPratiti : MonoBehaviour
     public PratitiAttr _pratitiAttr;
 
     public StickerType[] _stickerTypes ;
+    public LootTable _lootTable;
     
     /// <summary>
     /// Start is called on the frame when a script is enabled just before

@@ -35,17 +35,6 @@ public class MapSystem : IGameSystem
         SetCamera(MapName.Village); // 暫時直接設為村子
     }
 
-    // 每次回到地圖，會重新抓這些東西
-    public void SetMapObject(){
-        mainFlowchart = GameObject.Find("MainFlowchart").GetComponent<Flowchart>();
-        player = GameObject.Find("Player");
-
-        if(mainFlowchart == null)
-            Debug.LogError("找不到Map.sceme的mainFlowchart");
-
-        if(player == null)
-            Debug.LogError("找不到Map.sceme的player"); 
-    }
 
     public void EnterBattle(){
         SaveVariable(); // 儲存故事資料
@@ -53,6 +42,10 @@ public class MapSystem : IGameSystem
         // loadPratitiData
         mapState = (MapState) GameMediator.Instance.GetSceneState(SceneState.Map); // 取得Map狀態
         mapState.EnterBattle(); // 進入戰鬥
+    }
+
+    public void WinBattle(){
+        SceneManager.LoadScene( "EndBattleScene" );
     }
 
     public void BackToMap(){
@@ -76,8 +69,8 @@ public class MapSystem : IGameSystem
     // 設置攝影機
     public void SetCamera(MapName map){
         _nowMap = map;
-        if(Cameras == null)
-            Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
+
+        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
         
         foreach(GameObject camera in Cameras){
             camera.SetActive(false);
@@ -141,6 +134,18 @@ public class MapSystem : IGameSystem
     public void LoadVariable(){
         SetMapObject(); // 重新找mainFlowchart（切場景會消失）
         UseFungus.PlayBlock(mainFlowchart.gameObject, "LoadVariable");
+    }
+
+    // 每次回到地圖，會重新抓這些東西
+    public void SetMapObject(){
+        mainFlowchart = GameObject.Find("MainFlowchart").GetComponent<Flowchart>();
+        player = GameObject.Find("Player");
+
+        if(mainFlowchart == null)
+            Debug.LogError("找不到Map.sceme的mainFlowchart");
+
+        if(player == null)
+            Debug.LogError("找不到Map.sceme的player"); 
     }
 }
 

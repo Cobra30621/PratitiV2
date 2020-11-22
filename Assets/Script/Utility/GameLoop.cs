@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 // 遊戲主迴圈
 public class GameLoop : MonoBehaviour 
@@ -17,14 +18,16 @@ public class GameLoop : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+			// 設定起始的場景
+			SetStartStage(startScene);
+			GameMediator.Instance.Initinal();
         }
         else if (this!=instance)
         {
             Destroy(gameObject);
         }      
-		// 設定起始的場景
-		SetStartStage(startScene);
-		GameMediator.Instance.Initinal();
+		
+		
 	}
     
 
@@ -65,7 +68,8 @@ public class GameLoop : MonoBehaviour
 
 	// =============== 測試用方法 ＝==============
 	public void EndBattle(){
-		GameMediator.Instance.BackToMap();
+		SceneManager.LoadScene( "EndBattleScene" );
+		// GameMediator.Instance.BackToMap();
 	}
 
 	public void CreatePratiti(PratitiType type){
@@ -75,6 +79,11 @@ public class GameLoop : MonoBehaviour
 	public void AddPratiti(){
 		PratitiType type = PratitiType.Pig;
 		GameMediator.Instance.CreateBagPratiti(type);
+	}
+
+	public LootTable table;
+	public void DropItem(){
+		table.DropItem();
 	}
 
 
