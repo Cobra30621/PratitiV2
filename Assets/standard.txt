@@ -1,0 +1,26 @@
+#SAY.Flowchart.1.
+hihi fuck
+
+#CHARACTER.Sheila
+Sheila
+
+#CHARACTER.Character Name
+palatiti
+
+#SAY.Flowchart1.4.
+我是可愛的帕拉提提{wi}
+我好喜歡你
+
+#SAY.Flowchart1.5.
+你好噁心{w=0.5}
+滾{punch=10,0.5}
+
+#SAY.Flowchart1.6.
+好拉，來進戰鬥吧
+
+#MENU.Flowchart1.7
+進入戰鬥
+
+#MENU.Flowchart1.9
+先不要
+

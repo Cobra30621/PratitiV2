@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - platform
+  - death
+  - NPC
+  - empty
+  - Map
+  - ScreenUI
+  - Palyer
+  - Ground
+  - Boss
+  - BattlePratiti
+  - StoryPicture
+  - MapWall
+  - Wall
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Bar
+  - MainUI
+  - Ground
+  - Wall
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: backcround
+    uniqueID: 1247565989
+    locked: 0
+  - name: platform
+    uniqueID: 3994704319
+    locked: 0
+  - name: item
+    uniqueID: 2118567687
+    locked: 0
+  - name: character
+    uniqueID: 2646269275
+    locked: 0
+  - name: UI
+    uniqueID: 2293402365
+    locked: 0
+  - name: Bar
+    uniqueID: 4025600671
+    locked: 0
