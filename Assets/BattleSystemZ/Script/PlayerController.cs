@@ -37,8 +37,11 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
     private bool isGrounded;
     private bool isOnEnemy;
+    [SerializeField]
     public bool canMove = true;
+    [SerializeField]
     private bool canFlip = true;
+    [SerializeField]
     private bool canJump;
     private bool isJumping;
     private bool isTouchingRightWall = false;
@@ -142,7 +145,7 @@ public class PlayerController : MonoBehaviour
         if(!isAttacking)
         {
             isHitting = false;
-            playerRig2D.gravityScale = 2.5f;
+            //playerRig2D.gravityScale = 2.5f;
         }
     }
 
@@ -328,6 +331,7 @@ public class PlayerController : MonoBehaviour
 
                     canFlip = false;
                     amountOfJumpLeft = 0;
+                    playerRig2D.gravityScale = 0;
                     animator.SetTrigger("SpecialAttack");
                     StartCoroutine(SpecialAttackStopCheck());
 
@@ -409,7 +413,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfCanJump()
     {
-        if (isGrounded && playerRig2D.velocity.y <= 0)
+        if (isGrounded && playerRig2D.velocity.y <= 0 && !animator.GetCurrentAnimatorStateInfo(0).IsName("SpecialAttack")) 
         {
             print("TouchGround");
             amountOfJumpLeft = amountOfJump;
@@ -571,7 +575,10 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(float jumpForce)
     {
-        playerRig2D.velocity = new Vector2(playerRig2D.velocity.x, jumpForce);
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("SpecialAttack"))
+        {
+            playerRig2D.velocity = new Vector2(playerRig2D.velocity.x, jumpForce);
+        }
     }
 
     // 完成攻擊動畫
@@ -610,12 +617,12 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         canFlip = false;
         yield return new WaitForSeconds(freeze_time);
+        playerRig2D.velocity = new Vector3(x_force, y_force);
+        yield return new WaitForSeconds(0.15f);
         canJump = true;
         canMove = true;
         canFlip = true;
-        playerRig2D.velocity = new Vector3(x_force, y_force);
-        yield return new WaitForSeconds(0.15f);
-        playerRig2D.velocity = new Vector3(x_force/2, y_force/3);
+        playerRig2D.velocity = new Vector3(x_force/3, y_force/4);
     }
     IEnumerator SpecialAttackStopCheck()
     {

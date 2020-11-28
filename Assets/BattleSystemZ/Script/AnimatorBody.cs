@@ -18,6 +18,9 @@ public class AnimatorBody : MonoBehaviour
     PlayerController playerConScript;
     [SerializeField]
     PlayerController enemyConScript;
+    [SerializeField]
+    BattleCameraControl cameraConScript;
+
     public Rigidbody2D enemyRigidbody;
     private float x, y, damage;
 
@@ -69,6 +72,7 @@ public class AnimatorBody : MonoBehaviour
     {
         StartCoroutine(HitWiggle(damage));
         StartCoroutine(enemyConScript.StartWiggle(damage / 100, xVelocity, yVelocity));
+        StartCoroutine(cameraConScript.CameraShake(0.1f, 10, 0.1f));
         if (CharacterNumber == 0)
         {
             BattlePratitiData.enemy_hp -= damage;

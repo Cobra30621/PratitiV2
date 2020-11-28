@@ -5,25 +5,28 @@ using UnityEngine;
 public class AnimationEventControl : MonoBehaviour
 {
     [SerializeField]
-    PlayerController playerConScipt;
+    PlayerController playerConScript;
+    [SerializeField]
     Rigidbody2D rig2D;
     private void StartAttacking()
     {
-        playerConScipt.isAttacking = true;
+        playerConScript.isAttacking = true;
         
     }
     private void StopAttacking()
     {
-        playerConScipt.isAttacking = false;
-        playerConScipt.isHitting = false;
-        playerConScipt.canMove = true;
+        playerConScript.isAttacking = false;
+        playerConScript.isHitting = false;
+        playerConScript.canMove = true;
+        rig2D.gravityScale = 2.5f;
     }
     private void StartHitting()
     {
-        playerConScipt.isHitting = true;
+        playerConScript.isHitting = true;
     }
     private void StopHitting()
     {
-        playerConScipt.isHitting = false;
+        playerConScript.isHitting = false;
+        rig2D.gravityScale = 2.5f;
     }
 }
