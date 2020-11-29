@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 255567453}
   - component: {fileID: 255567455}
   - component: {fileID: 255567454}
+  - component: {fileID: 255567456}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -459,7 +460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1, y: 17}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &255567454
@@ -475,7 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.20012799, g: 0.13332146, b: 0.26415092, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -483,19 +484,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 499e77d1ed16949378622d28a5a56e14, type: 3}
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
-    m_MaxSize: 60
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: material
+  m_Text: Material
 --- !u!222 &255567455
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -504,6 +505,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255567452}
   m_CullTransparentMesh: 0
+--- !u!114 &255567456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255567452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.33962262, g: 0.12067145, b: 0.008009966, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!4 &266509203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4174344940175285188, guid: b3247d986bb2a49c5b88ad655c0d1d0a,
@@ -1871,6 +1887,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c7881933bb4d17f4cba2cf68d890ca6a,
         type: 3}
+    - target: {fileID: 5808568704064974939, guid: 78d5143d3b81c4b73af5b4c31685e269,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808568704064974939, guid: 78d5143d3b81c4b73af5b4c31685e269,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 28009750795060018, guid: 78d5143d3b81c4b73af5b4c31685e269,
         type: 3}
       propertyPath: m_Offset.y
@@ -6564,11 +6590,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6278082231162560391, guid: cc98d5a8433de449ab8888f4d18bebbf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc98d5a8433de449ab8888f4d18bebbf, type: 3}
