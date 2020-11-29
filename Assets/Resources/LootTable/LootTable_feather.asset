@@ -14,29 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootName: 
   _loots:
-  - _itemType: 1
-    _stickerType: 0
-    _probability: 30
-    f_probability: 0.3
-    _dropCount: 27
+  - _itemType: 0
+    _stickerType: 1
+    _probability: 83
+    f_probability: 0.3306773
+    _dropCount: 6
   - _itemType: 1
     _stickerType: 1
     _probability: 30
-    f_probability: 0.3
-    _dropCount: 25
+    f_probability: 0.119521916
+    _dropCount: 1
   - _itemType: 1
     _stickerType: 2
-    _probability: 20
-    f_probability: 0.2
-    _dropCount: 25
+    _probability: 80
+    f_probability: 0.3187251
+    _dropCount: 7
   - _itemType: 0
     _stickerType: 0
-    _probability: 10
-    f_probability: 0.1
-    _dropCount: 13
+    _probability: 39
+    f_probability: 0.15537849
+    _dropCount: 2
   - _itemType: 0
     _stickerType: 1
-    _probability: 10
-    f_probability: 0.1
-    _dropCount: 10
-  dropItemCounts: 100
+    _probability: 19
+    f_probability: 0.07569721
+    _dropCount: 0
+  dropItemCounts: 16
