@@ -53,30 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BattleSystem\BattleSystemData\BattleDataBase.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemData\PratitiBattleData.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemData\PratitiBattleDataBase.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\BattleSystem.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\ButtonSystem.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\CatchSystem.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\control.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\Damage.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\defense.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\enemy.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\EnemyEmptyCollide.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\LittleMagic.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\Magic.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\Miss.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\Player.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\PratitiCloudControl.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\PratitiCloudLittleBodyControl.cs" />
-     <Compile Include="Assets\BattleSystem\BattleSystemScript\TutorialControl.cs" />
-     <Compile Include="Assets\BattleSystemZ\Script\AnimationEvent.cs" />
-     <Compile Include="Assets\BattleSystemZ\Script\AnimationEventControl.cs" />
-     <Compile Include="Assets\BattleSystemZ\Script\AnimatorBody.cs" />
-     <Compile Include="Assets\BattleSystemZ\Script\BattlePratitiData.cs" />
-     <Compile Include="Assets\BattleSystemZ\Script\HealthBarControl.cs" />
-     <Compile Include="Assets\BattleSystemZ\Script\PlayerController.cs" />
      <Compile Include="Assets\Collider2DRaycastFilter.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
