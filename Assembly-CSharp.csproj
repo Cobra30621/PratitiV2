@@ -58,6 +58,7 @@
      <Compile Include="Assets\BattleSystemZ\Script\AnimatorBody.cs" />
      <Compile Include="Assets\BattleSystemZ\Script\BattleCameraControl.cs" />
      <Compile Include="Assets\BattleSystemZ\Script\BattleControl.cs" />
+     <Compile Include="Assets\BattleSystemZ\Script\BattleDataManager.cs" />
      <Compile Include="Assets\BattleSystemZ\Script\BattlePratitiData.cs" />
      <Compile Include="Assets\BattleSystemZ\Script\HealthBarControl.cs" />
      <Compile Include="Assets\BattleSystemZ\Script\PlayerController.cs" />
