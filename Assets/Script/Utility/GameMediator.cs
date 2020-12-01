@@ -113,6 +113,11 @@ public class GameMediator
 		m_mapSystem.EnterBattle();
 	}
 
+	// 戰鬥結束，判斷誰勝利
+	public void EndBattle(BattleOutcome outcome){
+		m_mapSystem.EndBattle(outcome);
+	}
+
 	// 戰鬥結束回到場景
 	public void BackToMap(){
 		m_mapSystem.BackToMap();
@@ -189,7 +194,7 @@ public class GameMediator
 
 	// 戰鬥系統用
 	public PratitiAttr GetPlayerAttr(){
-		if(m_pratitiSystem == null || m_pratitiSystem._startPratiti == null)
+		if(m_pratitiSystem != null || m_pratitiSystem._startPratiti != null)
 			return m_pratitiSystem._startPratiti._pratitiAttr;
 		else{
 			Debug.Log("Player的資料是空的");
@@ -198,7 +203,7 @@ public class GameMediator
 	}
 
 	public PratitiAttr GetEnemyAttr(){
-		if(m_pratitiSystem == null || m_pratitiSystem._enemyPratiti == null)
+		if(m_pratitiSystem != null || m_pratitiSystem._enemyPratiti != null)
 			return m_pratitiSystem._enemyPratiti._pratitiAttr;
 		else{
 			Debug.Log("Enemy的資料是空的");

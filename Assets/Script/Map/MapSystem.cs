@@ -44,8 +44,18 @@ public class MapSystem : IGameSystem
         mapState.EnterBattle(); // 進入戰鬥
     }
 
-    public void WinBattle(){
-        SceneManager.LoadScene( "EndBattleScene" );
+    public void EndBattle(BattleOutcome outcome){
+        switch(outcome){
+            case BattleOutcome.Win:
+                Debug.Log("贏的戰鬥");
+                SceneManager.LoadScene( "EndBattleScene" );
+                break;
+            case BattleOutcome.Lose:
+                Debug.Log("輸了戰鬥");
+                BackToMap();
+                break;
+        }
+        
     }
 
     public void BackToMap(){

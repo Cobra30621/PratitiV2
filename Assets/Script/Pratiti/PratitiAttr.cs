@@ -28,7 +28,7 @@ public class PratitiAttr
         get{return rawHp + plusHp;}
     }
 
-    public int Attr{
+    public int Atk{
         get{return rawAttr + plusAttr;}
     }
 

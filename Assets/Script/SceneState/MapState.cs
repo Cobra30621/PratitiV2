@@ -34,7 +34,7 @@ public class MapState : ISceneState
 	}
 
 	public void EnterBattle(){
-		m_Controller.SetState(new BattleState(m_Controller), "Battle" );
+		m_Controller.SetState(new BattleState(m_Controller), "Y.ABattleZ" );
 	}
 
 	public void LeaveGame(){
