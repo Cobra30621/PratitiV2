@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Fungus;
+using Cinemachine;
 
 public enum MapName{
-    Village, DessertHouse1, DessertHouse2
+    Room, Gallery, DevilCity
 }
 
 public class MapSystem : IGameSystem
@@ -32,7 +33,7 @@ public class MapSystem : IGameSystem
      public override void Initialize(){
         SetMapObject();
         Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
-        SetCamera(MapName.Village); // 暫時直接設為村子
+        SetCamera(MapName.Gallery); // 暫時直接設為村子
     }
 
 
@@ -78,9 +79,10 @@ public class MapSystem : IGameSystem
 
     // 設置攝影機
     public void SetCamera(MapName map){
+        Debug.Log($"打開攝影機OAO");
         _nowMap = map;
 
-        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
+        // Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
         
         foreach(GameObject camera in Cameras){
             camera.SetActive(false);
