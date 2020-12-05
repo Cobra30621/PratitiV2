@@ -34,7 +34,7 @@ public class MapSystem : IGameSystem
      public override void Initialize(){
         SetMapObject();
         Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
-        SetCamera(MapName.Gallery); // 暫時直接設為村子
+        // SetCamera(MapName.Room); // 暫時直接設為村子
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 

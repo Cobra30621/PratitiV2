@@ -167,7 +167,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 28009751618474053}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 28009751618474088}
   variables:
   - {fileID: 28009751618474090}
   description: 
@@ -247,7 +248,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28009751618474059}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
   m_Name: 
@@ -255,7 +256,7 @@ MonoBehaviour:
   itemId: 2
   indentLevel: 0
   anyVar:
-    variable: {fileID: 28009751618474090}
+    variable: {fileID: 0}
     data:
       animatorData:
         animatorRef: {fileID: 0}
