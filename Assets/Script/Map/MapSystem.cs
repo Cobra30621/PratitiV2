@@ -19,6 +19,7 @@ public class MapSystem : IGameSystem
     private BattleState battleState; // 戰鬥場景狀態
 
     public GameObject[] Cameras;
+    private GameObject mainCamera;
     
 
     // 玩家位置相關
@@ -34,6 +35,7 @@ public class MapSystem : IGameSystem
         SetMapObject();
         Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
         SetCamera(MapName.Gallery); // 暫時直接設為村子
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
 
@@ -109,6 +111,14 @@ public class MapSystem : IGameSystem
         player.transform.position = pos;
     }
 
+    private void SetMainCameraPos(Vector3 vec){
+        if(mainCamera == null)
+            mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        mainCamera.transform.position = vec;
+        Debug.Log("mainCameravec:"+ vec);
+        Debug.Log("mainCameraPos:"+ mainCamera.transform.position);
+    }
+
 
     // ===================轉場方法===================
     public float duration = 1f;
@@ -118,12 +128,14 @@ public class MapSystem : IGameSystem
 
     public void ChangeScene(Vector3 vec, MapName map){
         var cameraManager = FungusManager.Instance.CameraManager;
+        
 
         cameraManager.ScreenFadeTexture = CameraManager.CreateColorTexture(fadeColor, 32, 32);
         cameraManager.FadeOut(duration, delegate { // 淡出
                 fadeMethon.Continue(); // 繼續對話
                 SetCamera(map); // 設置攝影機
                 SetPlayerPos(vec); // 轉移玩家位置
+                SetMainCameraPos(vec);
                 fadeMethon.FadeIn(); // 淡入
         });
     }
