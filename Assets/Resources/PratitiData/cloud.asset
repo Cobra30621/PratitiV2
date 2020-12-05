@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: "\u96F2\u6735"
   _pratitiType: 2
   _icon: {fileID: 21300000, guid: 633d95db0e0434fd6bc2305a797bdac4, type: 3}
-  _rawHp: 105
+  _rawHp: 1050
   _rawAttr: 105
   _rawDef: 100
   _rawSpeed: 105

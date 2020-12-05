@@ -13,5 +13,6 @@ public abstract class IGameSystem
 	public virtual void Initialize(){}
 	public virtual void Release(){}
 	public virtual void Update(){}
+	public virtual void OnSceneLoad(){}
 
 }

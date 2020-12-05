@@ -100,5 +100,10 @@ public class PratitiAttr
                 break;
         }
     }
+
+    public override string ToString(){
+        return $"{pratitiType}類Pratiti的Akt:{Atk},Hp:{Hp}, Def{Def}";
+    }
+
 }
 

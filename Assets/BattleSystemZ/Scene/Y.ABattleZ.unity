@@ -7190,7 +7190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed71fc4bc7fd48d78b5e4d6bd3f9ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEditMode: 1
+  isEditMode: 0
   _outCome: 0
 --- !u!4 &909596702
 Transform:

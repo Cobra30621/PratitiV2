@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf01d4ca44032407284a2faffb5753ed, type: 3}
-  m_Name: LootTable_feather
+  m_Name: LootTable_test
   m_EditorClassIdentifier: 
   lootName: 
   _loots:
@@ -18,7 +18,7 @@ MonoBehaviour:
     _stickerType: 1
     _probability: 83
     f_probability: 0.3306773
-    _dropCount: 6
+    _dropCount: 4
   - _itemType: 1
     _stickerType: 1
     _probability: 30
@@ -33,10 +33,10 @@ MonoBehaviour:
     _stickerType: 0
     _probability: 39
     f_probability: 0.15537849
-    _dropCount: 2
+    _dropCount: 1
   - _itemType: 0
     _stickerType: 1
     _probability: 19
     f_probability: 0.07569721
-    _dropCount: 0
+    _dropCount: 3
   dropItemCounts: 16

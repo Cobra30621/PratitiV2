@@ -735,6 +735,7 @@
      <Compile Include="Assets\Script\Item\Sticker\StickerData.cs" />
      <Compile Include="Assets\Script\Item\Sticker\StickerSelectedBar.cs" />
      <Compile Include="Assets\Script\Item\Sticker\StickerSelectedUI.cs" />
+     <Compile Include="Assets\Script\LevelDesign\DrawCameraRange.cs" />
      <Compile Include="Assets\Script\LevelDesign\DrawEditViewRange.cs" />
      <Compile Include="Assets\Script\LevelDesign\PlayerController.cs" />
      <Compile Include="Assets\Script\Map\ICamera.cs" />

@@ -29,16 +29,21 @@ public class PratitiSystem : IGameSystem
 
     public override void Initialize(){
         SetAssetFactory();
-        // CreateBagPratiti(PratitiType.Pig);
-        // CreateBagPratiti(PratitiType.Feather);
         CreateAllPratiti();
-        // 超級爛的方法
-        _stickerSelectedUI = GameMediator.Instance.GetStickerSelectedUI();
-        _stickerSelectedUI._stickerEquiped += OnStickerEquiped;
+        OnSceneLoad(); 
 
         _startPratiti = _bagPratitis[0];
         _selectedPratiti = _bagPratitis[0];
     }
+
+    public override void OnSceneLoad(){
+        // 事件相關
+        // 超級爛的方法
+        _stickerSelectedUI = GameMediator.Instance.GetStickerSelectedUI();
+        _stickerSelectedUI._stickerEquiped += OnStickerEquiped;
+    }
+
+
 
     public void CreateAllPratiti(){
         foreach (PratitiType type in Enum.GetValues( typeof( PratitiType ) )){

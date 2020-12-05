@@ -21,6 +21,8 @@ public class BattleDataManager : MonoBehaviour
         PratitiAttr _playerAttr = GameMediator.Instance.GetPlayerAttr();
         PratitiAttr _enemyAttr = GameMediator.Instance.GetEnemyAttr();
 
+        Debug.Log("Player" + _playerAttr);
+        Debug.Log("Enemy" + _enemyAttr);
         BattlePratitiData.SetPlayerData(_playerAttr);
         BattlePratitiData.SetEnemyData(_enemyAttr);
     }

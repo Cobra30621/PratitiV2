@@ -47,6 +47,11 @@ public class GameMediator
         
     }
 
+	public void OnSceneLoad(){
+		m_itemSystem.OnSceneLoad();
+		m_pratitiSystem.OnSceneLoad();
+	}
+
 	public void InputProcess(){
 		if(Input.GetKeyDown(KeyCode.Z)){ 
 			PlayStoryWhenKeyPress(); // 播放對話

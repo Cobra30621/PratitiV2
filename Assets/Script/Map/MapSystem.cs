@@ -84,7 +84,7 @@ public class MapSystem : IGameSystem
         Debug.Log($"打開攝影機OAO");
         _nowMap = map;
 
-        // Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
+        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
         
         foreach(GameObject camera in Cameras){
             camera.SetActive(false);

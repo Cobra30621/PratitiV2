@@ -30,21 +30,16 @@ public class ItemSystem : IGameSystem
         _factory =  MainFactory.GetAssetFactory();
         CreateAllSticker();
         Debug.Log("初始化itemSystem");
-        // AddSticker(StickerType.Attr , 3);
-        // AddSticker(StickerType.Def , 3);
-        // AddSticker(StickerType.Hp , 3);
-
         CreateAllStickerChip();
 
-        // AddStickerChip(StickerType.Attr , 13);
-        // AddStickerChip(StickerType.Def , 13);
-        // AddStickerChip(StickerType.Def , 13);
+        OnSceneLoad();
+    }
 
+    public override void OnSceneLoad(){
         // 事件相關
         // 超級爛的方法
         _stickerSelectedUI = GameMediator.Instance.GetStickerSelectedUI();
         _stickerSelectedUI._stickerEquiped += OnStickerEquiped;
-        // _startPratiti = _bagPratitis[0];
     }
 
     // CompositeStickerChip
