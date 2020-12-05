@@ -73,18 +73,21 @@ public class MapSystem : IGameSystem
     {
         LoadVariable(); // 讀取劇情變數
         GameMediator.Instance.InitializeTalkState(); // 更新所有物件狀態
+        GameMediator.Instance.OnSceneLoad(); // 所有系統重回場景要重新訂閱的
+        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
         SetPlayerPos(_playPos); // 更改玩家位置
         SetCamera(_nowMap); // 設定攝影機
+        
         // 淡入淡出
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     // 設置攝影機
     public void SetCamera(MapName map){
-        Debug.Log($"打開攝影機OAO");
+        Debug.Log($"理應打開攝影機{map}");
         _nowMap = map;
 
-        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
+        
         
         foreach(GameObject camera in Cameras){
             camera.SetActive(false);
@@ -111,13 +114,6 @@ public class MapSystem : IGameSystem
         player.transform.position = pos;
     }
 
-    private void SetMainCameraPos(Vector3 vec){
-        if(mainCamera == null)
-            mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        mainCamera.transform.position = vec;
-        Debug.Log("mainCameravec:"+ vec);
-        Debug.Log("mainCameraPos:"+ mainCamera.transform.position);
-    }
 
 
     // ===================轉場方法===================
@@ -135,7 +131,6 @@ public class MapSystem : IGameSystem
                 fadeMethon.Continue(); // 繼續對話
                 SetCamera(map); // 設置攝影機
                 SetPlayerPos(vec); // 轉移玩家位置
-                SetMainCameraPos(vec);
                 fadeMethon.FadeIn(); // 淡入
         });
     }
