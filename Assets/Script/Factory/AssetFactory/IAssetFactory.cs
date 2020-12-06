@@ -7,6 +7,9 @@ public abstract class IAssetFactory
 	// 讀取帕拉提提資料
 	public abstract PratitiData LoadPratitiData(PratitiType type);
 
+	// 讀取石頭資料
+	public abstract StoneData LoadStoneData(StoneType type);
+
 	// 讀取貼紙資料
 	public abstract StickerData LoadStickerData(StickerType type);
 	

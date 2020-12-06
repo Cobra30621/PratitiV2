@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 // 從專案的Resource中,將Unity Asset實體化成GameObject的工廠類別
 public class ResourceAssetFactory : IAssetFactory 
 {
 	public const string PratitiDataPath = "PratitiData/";
 	public const string StickerDataPath = "StickerData/";
+	public const string StoneDataPath = "StoneData/";
 	public const string TalkIconPath = "TalkIcon/";
 	public const string PratitiSpritePath = "Pratiti/";
 	
+	public override StoneData LoadStoneData(StoneType type){
+		string stoneName = Enum.GetName(typeof(StoneType), type );
+
+		return Resources.Load( StoneDataPath + stoneName,typeof(StoneData)) as StoneData;
+	}
 
 	public override PratitiData LoadPratitiData(PratitiType type){
 		string pratitiName = "feather";
@@ -31,7 +38,7 @@ public class ResourceAssetFactory : IAssetFactory
 	}
 
 	public override StickerData LoadStickerData(StickerType type){
-		string name = "feather";
+		string name = "attr";
         switch(type){
             case StickerType.Attr:
                 name = "attr";

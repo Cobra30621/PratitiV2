@@ -236,6 +236,11 @@ public class GameMediator
 		m_itemSystem.AddStickerChip(type, addNum);
 	}
 
+	public void GetStone(StoneType type){
+		m_itemSystem.GetStone(type);
+	}
+
+
 	// ================================================
 	// =================StickerSelectedUI======================
 	// ================================================

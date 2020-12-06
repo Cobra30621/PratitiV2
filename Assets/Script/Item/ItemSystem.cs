@@ -12,6 +12,7 @@ public class ItemSystem : IGameSystem
 
     public Dictionary<StickerType, Sticker> _dicStickers = new Dictionary<StickerType, Sticker>();
     public Dictionary<StickerType, StickerChip> _dicStickerChips = new Dictionary<StickerType, StickerChip>();
+    public Dictionary<StoneType, Stone> _dicStones = new Dictionary<StoneType, Stone>();
 
     public Sticker _selectedSticker;
     
@@ -31,6 +32,8 @@ public class ItemSystem : IGameSystem
         CreateAllSticker();
         Debug.Log("初始化itemSystem");
         CreateAllStickerChip();
+        CreateAllStone();
+        GetAllStone(); // 測試用 
 
         OnSceneLoad();
     }
@@ -78,6 +81,35 @@ public class ItemSystem : IGameSystem
             }
         }
     }
+
+    // StoneChip
+    public void CreateAllStone(){
+        foreach (StoneType type in Enum.GetValues( typeof( StoneType ) )){
+            CreateStone(type);
+        }
+    }
+
+    public void CreateStone(StoneType type){
+        StoneData data = _factory.LoadStoneData(type);
+        Stone stone = new Stone(type, data ); 
+        _dicStones.Add(type, stone );
+        Debug.Log($"創造一個{data._name}俗頭");
+    }
+
+    public void GetAllStone(){
+        Debug.Log("測試：取的所有俗頭");
+        foreach (Stone stone in _dicStones.Values)
+        {
+            stone._hadGet = true;
+        }
+    }
+
+    public void GetStone(StoneType type){
+        Stone stone = _dicStones[type];
+        stone._hadGet = true;
+    }
+
+    
 
     // StickerChip
     public void CreateAllStickerChip(){

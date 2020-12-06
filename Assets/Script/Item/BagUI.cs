@@ -11,8 +11,10 @@ public class BagUI : MonoBehaviour
     private ItemSystem _itemSystem;
     public Dictionary<StickerType, Sticker> _dicStickers ;
     public Dictionary<StickerType, StickerChip> _dicStickerChips;
+    public Dictionary<StoneType, Stone> _dicStones;
 
     public List<CompositeStickerBar> _compostierStickerBars;
+    public StoneBar[] _stoneBars;
 
     [SerializeField] GameObject compositeStickerBarPrefab;
     [SerializeField] Transform transform_book;
@@ -42,8 +44,10 @@ public class BagUI : MonoBehaviour
         // stickerpanel 
         _dicStickers = _itemSystem._dicStickers;
         _dicStickerChips = _itemSystem._dicStickerChips;
+        _dicStones = _itemSystem._dicStones;
 
         CreateAllCompostieStickerBars();
+        CreateAllStoneBars();
         RefreshInfo();
     }  
 
@@ -83,7 +87,29 @@ public class BagUI : MonoBehaviour
         foreach(CompositeStickerBar bar in _compostierStickerBars){
             bar.RefreshInfo();
         }
+        RefreshStoneBar();
     }
+
+    //===================================================
+    //=================開啟分頁StonePanel方法============
+    //===================================================
+
+    public void CreateAllStoneBars(){
+        foreach (StoneBar bar in _stoneBars)
+        {
+            Stone stone = _dicStones[bar._type];
+            bar.Initialize(stone);
+        }
+    }
+
+    public void RefreshStoneBar(){
+        foreach (StoneBar bar in _stoneBars)
+        {
+            bar.RefreshInfo();
+        }
+    }
+
+
 
     //===================================================
     //=================開啟分頁StickerPanel方法============

@@ -729,6 +729,9 @@
      <Compile Include="Assets\Script\Item\Loot\Loot.cs" />
      <Compile Include="Assets\Script\Item\Loot\LootTable.cs" />
      <Compile Include="Assets\Script\Item\Loot\LootUnitBar.cs" />
+     <Compile Include="Assets\Script\Item\MagicStone\Stone.cs" />
+     <Compile Include="Assets\Script\Item\MagicStone\StoneBar.cs" />
+     <Compile Include="Assets\Script\Item\MagicStone\StoneData.cs" />
      <Compile Include="Assets\Script\Item\Sticker\CompositeStickerBar.cs" />
      <Compile Include="Assets\Script\Item\Sticker\Sticker.cs" />
      <Compile Include="Assets\Script\Item\Sticker\StickerChip.cs" />
