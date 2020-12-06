@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;// Required when using Event data.
 
-public class StickerSelectedBar : MonoBehaviour
+public class StickerSelectedBar : MonoBehaviour , IPointerEnterHandler , IPointerExitHandler
 {
     
     [SerializeField] private Text lab_title;
@@ -13,6 +14,9 @@ public class StickerSelectedBar : MonoBehaviour
 
     [SerializeField] private Image img_icon;
     [SerializeField] private Button butt_select;
+
+    [SerializeField] private GameObject panel_des;
+    [SerializeField] private Text lab_des;
 
     public IAssetFactory factory;
     public Sticker _sticker;
@@ -44,5 +48,18 @@ public class StickerSelectedBar : MonoBehaviour
             butt_select.interactable = true;
         else
             butt_select.interactable = false;
+    }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        lab_des.text = _sticker._stickerData._descript;
+        panel_des.SetActive(true);
+        Debug.Log("The cursor entered the selectable UI element.");
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        panel_des.SetActive(false);
+        Debug.Log("The cursor exited the selectable UI element.");
     }
 }

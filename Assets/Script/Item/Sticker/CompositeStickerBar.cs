@@ -57,6 +57,13 @@ public class CompositeStickerBar : MonoBehaviour
         else{
             butt_composite.interactable = false;
         }  
-            
+    }
+
+    public string GetStickerInfo(){
+        return _stickerData._descript;
+    }
+
+    public string GetStickerChipInfo(){
+        return _stickerData._chipDes;
     }
 }

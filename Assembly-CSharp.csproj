@@ -723,6 +723,10 @@
      <Compile Include="Assets\Script\FungusCommand\GetStickerChip.cs" />
      <Compile Include="Assets\Script\FungusCommand\MovePlayer.cs" />
      <Compile Include="Assets\Script\Item\BagUI.cs" />
+     <Compile Include="Assets\Script\Item\Description\IShowDesInfo.cs" />
+     <Compile Include="Assets\Script\Item\Description\ShowCompositeStickerChipDesInfo.cs" />
+     <Compile Include="Assets\Script\Item\Description\ShowCompositeStickerDesInfo.cs" />
+     <Compile Include="Assets\Script\Item\Description\ShowCompositeStoneDesInfo.cs" />
      <Compile Include="Assets\Script\Item\IItem.cs" />
      <Compile Include="Assets\Script\Item\ItemSystem.cs" />
      <Compile Include="Assets\Script\Item\Loot\EndBattleUI.cs" />

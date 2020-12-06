@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stoneType: 2
   _name: "\u77F3\u4FD7\u982D"
-  _descript: 
+  _descript: "\u53EF\u4EE5\u653E\u571F\u9B54\u6CD5"
   _icon: {fileID: 21300000, guid: a3b5edf35f9774eed9e70aa63cd56ea1, type: 3}

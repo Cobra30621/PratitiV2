@@ -14,6 +14,7 @@ public class StickerData : ScriptableObject{
     public StickerType _stickerType;
     public string _name;
     public string _descript;
+    public string _chipDes;
     public Sprite _icon;
     public Sprite _chipIcon;
     public float _addAttr;

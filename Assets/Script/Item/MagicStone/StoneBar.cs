@@ -29,4 +29,8 @@ public class StoneBar : MonoBehaviour
     public void UpdateImageState(){
         img_icon.gameObject.SetActive(_stone._hadGet);
     }
+
+    public string GetStoneDes(){
+        return _stone._stoneData._descript;
+    }
 }

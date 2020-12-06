@@ -15,6 +15,7 @@ MonoBehaviour:
   _stickerType: 2
   _name: "\u8840\u91CF\u8CBC\u7D19"
   _descript: "\u8840\u91CF+10%"
+  _chipDes: "\u5408\u6210\u8840\u91CF\u8CBC\u7D19\u7684\u788E\u7247"
   _icon: {fileID: 21300000, guid: 023b505b655284c81a6203b81de36888, type: 3}
   _chipIcon: {fileID: 21300000, guid: 023b505b655284c81a6203b81de36888, type: 3}
   _addAttr: 0.1
