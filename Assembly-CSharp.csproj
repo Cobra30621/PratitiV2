@@ -744,6 +744,7 @@
      <Compile Include="Assets\Script\Item\Sticker\StickerSelectedUI.cs" />
      <Compile Include="Assets\Script\LevelDesign\DrawCameraRange.cs" />
      <Compile Include="Assets\Script\LevelDesign\DrawEditViewRange.cs" />
+     <Compile Include="Assets\Script\LevelDesign\EnemyMove.cs" />
      <Compile Include="Assets\Script\LevelDesign\PlayerController.cs" />
      <Compile Include="Assets\Script\Map\ICamera.cs" />
      <Compile Include="Assets\Script\Map\MapSystem.cs" />
