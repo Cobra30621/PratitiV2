@@ -148,6 +148,10 @@ public class GameMediator
         m_mapSystem.SetCamera(map);
     }
 
+	public GameObject GetPlayerObject(){
+        return m_mapSystem.GetPlayerObject();
+    }
+
 	// ================================================
 	// =================PratitiSystem======================
 	// ================================================

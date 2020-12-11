@@ -114,6 +114,13 @@ public class MapSystem : IGameSystem
         player.transform.position = pos;
     }
 
+    public GameObject GetPlayerObject(){
+        if(player == null)  
+            SetMapObject();
+
+        return player;
+    }
+
 
 
     // ===================轉場方法===================
