@@ -51,6 +51,8 @@ GameObject:
   - component: {fileID: 2309697837803237215}
   - component: {fileID: 2309697837803237214}
   - component: {fileID: 2309697837803237209}
+  - component: {fileID: 6703203017946186677}
+  - component: {fileID: 8914093157251900926}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -97,8 +99,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 2309697837803237234}
-  selectedCommands: []
+  - {fileID: 2309697837803237225}
+  selectedCommands:
+  - {fileID: 2309697837803237200}
   variables:
   - {fileID: 2309697837803237233}
   description: 
@@ -2486,6 +2489,8 @@ MonoBehaviour:
   - {fileID: 2309697837803237203}
   - {fileID: 2309697837803237202}
   - {fileID: 2309697837803237200}
+  - {fileID: 6703203017946186677}
+  - {fileID: 8914093157251900926}
   suppressAllAutoSelections: 0
 --- !u!114 &2309697837803237224
 MonoBehaviour:
@@ -3297,6 +3302,48 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 0
   targetGameObjectOLD: {fileID: 0}
+--- !u!114 &6703203017946186677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309697837803237211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 57
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
+--- !u!114 &8914093157251900926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309697837803237211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 58
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  targetGameObjectOLD: {fileID: 0}
 --- !u!1 &2938969602300929235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,7 +3450,7 @@ Transform:
   m_GameObject: {fileID: 4202960306914636917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.22, y: -1.1, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_Children:
   - {fileID: 6020328992948414793}
   - {fileID: 3686485430461894098}
@@ -3424,6 +3471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputZToPlayBlock: 1
+  canTalk: 1
   talkIconType: 2
   m_flowchart: {fileID: 2309697837803237236}
 --- !u!61 &4202960306914636918

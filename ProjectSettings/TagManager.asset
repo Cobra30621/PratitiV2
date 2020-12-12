@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TalkObject
   - VSCamera
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -27,9 +28,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - ===Map===
+  - Player
+  - Pratiti
   - 
   - 
   - 

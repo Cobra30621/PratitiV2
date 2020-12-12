@@ -38,8 +38,7 @@ public class MapSystem : IGameSystem
 
      public override void Initialize(){
         SetMapObject();
-        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        SetCamera();
     }
 
 
@@ -95,7 +94,6 @@ public class MapSystem : IGameSystem
 
     // 設置攝影機
     public void SetCamera(MapName map){
-        Debug.Log($"理應打開攝影機{map}");
         _nowMap = map;
 
         foreach(GameObject camera in Cameras){
@@ -145,15 +143,21 @@ public class MapSystem : IGameSystem
     }
 
     public void DefeatPratiti(){
-        PratitiMove pratiti = _dicEnemyPratitis[nowEnemyId];
-        pratiti.IsDefeat();
+        if(_dicEnemyPratitis == null)
+            SetEnemyPratitiInDic();
+        
+        if(_dicEnemyPratitis.ContainsKey(nowEnemyId)){
+            PratitiMove pratiti = _dicEnemyPratitis[nowEnemyId];
+            pratiti.IsDefeat();
+        }
+        
     }
 
     // 重置場景帕拉提提
     public void ResetMapPratiti(MapName mapName){
         if(_dicEnemyPratitis == null)
             SetEnemyPratitiInDic();
-            
+
         foreach (PratitiMove pratiti in _dicEnemyPratitis.Values )
         {
             if (pratiti.mapName == mapName)
@@ -213,6 +217,11 @@ public class MapSystem : IGameSystem
 
         if(player == null)
             Debug.LogError("找不到Map.sceme的player"); 
+    }
+
+    public void SetCamera(){
+        Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 }
 

@@ -142,7 +142,7 @@ public class PratitiMove : MonoBehaviour, ISaveable
             return "";
         }
         if ( GetComponent<SaveableEntity>().ID == ""){
-            Debug.Log("尚未產生ID，請產生");
+            Debug.Log(mapName + "的"+ gameObject + "尚未產生ID，請產生");
             return "";
         }
 

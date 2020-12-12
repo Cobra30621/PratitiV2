@@ -45,11 +45,22 @@ public class LootUnitBar : MonoBehaviour
                 break;
         }
     }
-
-    // Green 02FF00  
-    // Purple 5C00FF
-
-    
+    public string GetInfo(){
+        ItemType itemType = _loot._itemType;
+        switch (itemType){
+            case ItemType.Sticker:
+                StickerType stickerType = _loot._stickerType;
+                StickerData data = factory.LoadStickerData(stickerType);
+                return $"{data._name}\n{data._descript}";
+            case ItemType.StickerChip:
+                StickerType chipType = _loot._stickerType;
+                StickerData data2 = factory.LoadStickerData(chipType);
+                return $"{data2._name}碎片\n{data2._chipDes}";
+            default:
+                Debug.Log($"找不到item類型{itemType}");
+                return "";
+        }
+    }
 
     public void AddItem(){
         ItemType itemType = _loot._itemType;

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345886723119306204}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: GO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2508651340026136085}
   - component: {fileID: 7083569643782710165}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: talkIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5461132830784443013}
   - component: {fileID: 5461132830784443012}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: feather-fur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 5461132831198117481}
   - component: {fileID: 5461132831198117399}
   - component: {fileID: 5461132831198117480}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: feather-right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5461132831304232898}
   - component: {fileID: 5461132831304232897}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: UpAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5461132831322814340}
   - component: {fileID: 5461132831322814339}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: RightAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 5461132831332911873}
   - component: {fileID: 5461132831332911872}
   - component: {fileID: 5461132831332911887}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: feather-body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5461132831545327396}
   - component: {fileID: 5461132831545327395}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: feather-mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 5461132831723945122}
   - component: {fileID: 5461132831723945121}
   - component: {fileID: 5461132831723945127}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: FeatherGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5461132831888614311}
   - component: {fileID: 5461132831888614310}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: feather-eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5461132831982165143}
   - component: {fileID: 5461132831982165142}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: DownAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,7 +1068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5461132831986990650}
   - component: {fileID: 5461132831986990649}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: LeftAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 5461132832465755777}
   - component: {fileID: 5461132832465755778}
   - component: {fileID: 5461132832465755791}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: feather-left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1437,7 +1437,7 @@ GameObject:
   - component: {fileID: 6201197200398444139}
   - component: {fileID: 6201197200398444138}
   - component: {fileID: 6201197200398444137}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Flowchart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4429,7 +4429,7 @@ GameObject:
   - component: {fileID: 345886722074094756}
   - component: {fileID: 345886722074094757}
   - component: {fileID: 6201197201990776883}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: pratiti_feather
   m_TagString: TalkObject
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -4518,7 +4518,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011039734, y: -0.15446508}
+  m_Offset: {x: 0.042256355, y: 0.0415529}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4529,7 +4529,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5493088, y: 0.6062987}
+  m_Size: {x: 0.65590096, y: 0.99833465}
   m_EdgeRadius: 0
 --- !u!61 &345886722074094756
 BoxCollider2D:
@@ -4589,4 +4589,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3765089c344f1488e8d62585323a3be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3e37edf0-0f95-4146-9f9d-f58051f61e2d
+  id: 

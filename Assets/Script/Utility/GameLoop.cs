@@ -22,12 +22,13 @@ public class GameLoop : MonoBehaviour
 			// 設定起始的場景
 			SetStartStage(startScene);
 			GameMediator.Instance.Initinal();
+			GameMediator.Instance.SetCamera(startMap);
         }
         else if (this!=instance)
         {
             Destroy(gameObject);
         }      
-		GameMediator.Instance.SetCamera(startMap);
+		
 	}
     
 

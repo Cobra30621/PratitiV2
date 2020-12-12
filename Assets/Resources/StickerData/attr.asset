@@ -15,7 +15,7 @@ MonoBehaviour:
   _stickerType: 0
   _name: "\u653B\u64CA\u8CBC\u7D19"
   _descript: "\u653B\u64CA+10%"
-  _chipDes: "\u5408\u6210\u653B\u64CA\u8CBC\u7D19\u7684\u788E\u7247"
-  _icon: {fileID: 21300000, guid: 8611a44cd0c8a4f45b46c07f888e2a6b, type: 3}
-  _chipIcon: {fileID: 21300000, guid: 8611a44cd0c8a4f45b46c07f888e2a6b, type: 3}
+  _chipDes: "\u7528\u4F86\u5408\u6210\u653B\u64CA\u8CBC\u7D19"
+  _icon: {fileID: 21300000, guid: f2a32bd5d41c0498bab86aad5993dbab, type: 3}
+  _chipIcon: {fileID: 21300000, guid: 21c02972091084092bc2d81a5adb4735, type: 3}
   _addAttr: 0.1
