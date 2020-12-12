@@ -14,7 +14,11 @@ public class SaveSystem : IGameSystem
 		Initialize();
     }
 
-    public Vector3 _playerPos;
+
+    public override void Initialize()
+    {
+        Load(); // 讀檔
+    }
 
     public void Save(){
         var state = LoadFile();

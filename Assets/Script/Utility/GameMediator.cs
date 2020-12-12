@@ -194,6 +194,7 @@ public class GameMediator
 
 	public void SetEnemyPratiti(MapPratiti pratiti){
 		m_pratitiSystem.SetEnemyPratiti(pratiti) ;
+		m_mapSystem.SetEnemyPratiti(pratiti) ;
 	}
 
 	public void CreateBagPratiti(PratitiType type){
@@ -227,6 +228,7 @@ public class GameMediator
 	public LootTable GetLootTable(){
 		return m_pratitiSystem._lootTable;
 	}
+
 
 	// ================================================
 	// =================ItemSystem===============

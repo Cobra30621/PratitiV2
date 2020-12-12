@@ -20,11 +20,16 @@ public class MapSystem : IGameSystem
 
     public GameObject[] Cameras;
     private GameObject mainCamera;
+
+    private Dictionary<string, PratitiMove> _dicEnemyPratitis; // 所有敵方帕拉提提ㄊˊ
     
 
     // 玩家位置相關
     public Vector3 _playPos;
     public MapName _nowMap;
+
+    public BattleOutcome _battleOutcome;
+    public string nowEnemyId;
 
     public MapSystem(GameMediator mediator):base(mediator)
 	{
@@ -34,7 +39,6 @@ public class MapSystem : IGameSystem
      public override void Initialize(){
         SetMapObject();
         Cameras = GameObject.FindGameObjectsWithTag("VSCamera"); // 找到所有的Camera
-        // SetCamera(MapName.Room); // 暫時直接設為村子
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
@@ -42,12 +46,13 @@ public class MapSystem : IGameSystem
     public void EnterBattle(){
         SaveVariable(); // 儲存故事資料
         SavePlayerPos(); // 儲存玩家位置
-        // loadPratitiData
+        GameMediator.Instance.Save(); // 存檔
         mapState = (MapState) GameMediator.Instance.GetSceneState(SceneState.Map); // 取得Map狀態
         mapState.EnterBattle(); // 進入戰鬥
     }
 
     public void EndBattle(BattleOutcome outcome){
+        _battleOutcome = outcome;
         switch(outcome){
             case BattleOutcome.Win:
                 Debug.Log("贏的戰鬥");
@@ -71,6 +76,12 @@ public class MapSystem : IGameSystem
     // 等讀取完場景，再執行
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        SetEnemyPratitiInDic(); // 抓取地圖中的帕拉提提;
+        GameMediator.Instance.Load(); // 讀檔
+        if(_battleOutcome == BattleOutcome.Win){
+            DefeatPratiti();
+        }
+        
         LoadVariable(); // 讀取劇情變數
         GameMediator.Instance.InitializeTalkState(); // 更新所有物件狀態
         GameMediator.Instance.OnSceneLoad(); // 所有系統重回場景要重新訂閱的
@@ -87,8 +98,6 @@ public class MapSystem : IGameSystem
         Debug.Log($"理應打開攝影機{map}");
         _nowMap = map;
 
-        
-        
         foreach(GameObject camera in Cameras){
             camera.SetActive(false);
             if(camera.GetComponent<ICamera>()._mapName == map)
@@ -122,6 +131,37 @@ public class MapSystem : IGameSystem
     }
 
 
+    // ===================場景中帕拉提提處理===================
+    public void SetEnemyPratitiInDic(){
+        _dicEnemyPratitis = new Dictionary<string, PratitiMove>();
+        foreach (var pratitiMove in GameObject.FindObjectsOfType<PratitiMove>())
+        {
+            _dicEnemyPratitis[pratitiMove.GetID()] = pratitiMove;
+        } 
+    }
+
+    public void SetEnemyPratiti(MapPratiti pratiti) {
+        nowEnemyId = pratiti.GetID();
+    }
+
+    public void DefeatPratiti(){
+        PratitiMove pratiti = _dicEnemyPratitis[nowEnemyId];
+        pratiti.IsDefeat();
+    }
+
+    // 重置場景帕拉提提
+    public void ResetMapPratiti(MapName mapName){
+        if(_dicEnemyPratitis == null)
+            SetEnemyPratitiInDic();
+            
+        foreach (PratitiMove pratiti in _dicEnemyPratitis.Values )
+        {
+            if (pratiti.mapName == mapName)
+                pratiti.Reset();
+        }
+    }
+
+
 
     // ===================轉場方法===================
     public float duration = 1f;
@@ -138,6 +178,7 @@ public class MapSystem : IGameSystem
                 fadeMethon.Continue(); // 繼續對話
                 SetCamera(map); // 設置攝影機
                 SetPlayerPos(vec); // 轉移玩家位置
+                ResetMapPratiti(map); // 重置場景帕拉提提
                 fadeMethon.FadeIn(); // 淡入
         });
     }

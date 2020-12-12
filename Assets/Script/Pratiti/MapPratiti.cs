@@ -27,4 +27,18 @@ public class MapPratiti : MonoBehaviour
         GameMediator.Instance.SetEnemyPratiti(this);
     }
 
+    public string GetID(){
+        if (GetComponent<SaveableEntity>() == null){
+            Debug.Log("沒掛SaveableEntity，請掛上");
+            return "";
+        }
+        if ( GetComponent<SaveableEntity>().ID == ""){
+            Debug.Log("尚未產生ID，請產生");
+            return "";
+        }
+
+        return GetComponent<SaveableEntity>().ID;
+    }
+
+
 }

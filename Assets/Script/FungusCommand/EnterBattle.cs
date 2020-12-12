@@ -18,6 +18,7 @@ namespace Fungus
         public override void OnEnter()
         {
             GameMediator.Instance.SetEnemyPratiti(_pratiti);
+            Debug.Log("設置敵方辣拉提提"+ _pratiti);
             GameMediator.Instance.EnterBattle();
 
         }

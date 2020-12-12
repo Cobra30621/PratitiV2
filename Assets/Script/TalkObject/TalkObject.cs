@@ -7,6 +7,7 @@ public class TalkObject : MonoBehaviour
 {
     public bool InputZToPlayBlock ; // 啟動對話是否為玩家按Z鍵
     protected bool inPlayerView; // 是否在視野內
+    public bool canTalk = true; // 是否可以對話
 
     public TalkIconType talkIconType = TalkIconType.talk; // 對話時顯示的Icon類型
     
@@ -42,6 +43,8 @@ public class TalkObject : MonoBehaviour
 		if(other.tag == "Player"){
             Debug.Log("PlayerEnter");
             inPlayerView = true;
+            
+            if(!canTalk){return;} //如果canTalk關掉，無法對話
 
             if ( InputZToPlayBlock ){
                 talkIcon.ShowIcon();
@@ -99,6 +102,10 @@ public class TalkObject : MonoBehaviour
     // 提供給Fungus用的方法
     public void SetInputZToPlayBlock(bool bo){
         InputZToPlayBlock = bo;
+    }
+
+    public void CanTalk(bool bo){
+        canTalk = bo;
     }
 
 }

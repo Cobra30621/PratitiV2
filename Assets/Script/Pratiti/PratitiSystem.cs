@@ -12,6 +12,7 @@ public class PratitiSystem : IGameSystem
     public BagPratiti _startPratiti; // 出戰的帕拉提提
     public BagPratiti _selectedPratiti; // 被選中的帕拉提提
     public MapPratiti _enemyPratiti; // 敵方的帕拉提提
+    
     public LootTable _lootTable; // 本次戰鬥料落物品
     
     // 裝備相關
@@ -42,7 +43,6 @@ public class PratitiSystem : IGameSystem
         _stickerSelectedUI = GameMediator.Instance.GetStickerSelectedUI();
         _stickerSelectedUI._stickerEquiped += OnStickerEquiped;
     }
-
 
 
     public void CreateAllPratiti(){

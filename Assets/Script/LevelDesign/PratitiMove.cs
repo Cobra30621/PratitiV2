@@ -17,7 +17,7 @@ public class PratitiMove : MonoBehaviour, ISaveable
 
     [Range(0f,1000f)]
     public float runSpeed = 140f;
-     public float turnSpeed = 0.1f; 
+    public float turnSpeed = 0.1f; 
 
     private  Rigidbody2D body;
     public Vector3 startPos;
@@ -27,15 +27,19 @@ public class PratitiMove : MonoBehaviour, ISaveable
     private Quaternion targetRotation;         //怪物的目標朝向
     public GameObject GO;
     public GameObject WarningIcon;
+    public MapName mapName;
+    private TalkObject talkObject;
 
-    public int test;
     
     // Start is called before the first frame update
     void Start()
     {
+        talkObject = GetComponent<TalkObject>();
         body = GetComponent<Rigidbody2D>();
         startPos = transform.position;
         playerGO = GameMediator.Instance.GetPlayerObject();
+        if(isDefeat == true)
+            IsDefeat();
     }
 
     // Update is called once per frame
@@ -45,9 +49,10 @@ public class PratitiMove : MonoBehaviour, ISaveable
     }
 
     public void UpdateProcess(){
-        DistanceCheck();
+        
         switch(currentState){
             case MoveState.IDLE:
+                DistanceCheck();
                 break;
             case MoveState.WARNING:
                 if(isPlayedAnime)
@@ -56,6 +61,7 @@ public class PratitiMove : MonoBehaviour, ISaveable
                 this.StartCoroutine(StartToChase());
                 break;
             case MoveState.CHASE:
+                DistanceCheck();
                 float distanceX = playerGO.transform.position.x - transform.position.x;
                 int dir = distanceX > 0 ? 1: -1;
                 Move(dir);
@@ -86,7 +92,7 @@ public class PratitiMove : MonoBehaviour, ISaveable
     {
         isPlayedAnime = true;
         ShowWarningIcon(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.7f);
         currentState = MoveState.CHASE;
         WarningIcon.SetActive(false);
         isPlayedAnime = false;
@@ -101,11 +107,16 @@ public class PratitiMove : MonoBehaviour, ISaveable
     public void Reset(){
         isDefeat = false;
         transform.position = startPos;
+        talkObject = GetComponent<TalkObject>();
+        talkObject.CanTalk(true);
         GO.SetActive(true);
+        currentState = MoveState.IDLE;
     }
 
     public void IsDefeat(){
         isDefeat = true;
+        talkObject = GetComponent<TalkObject>();
+        talkObject.CanTalk(false);
         currentState = MoveState.ISDEFEAT;
         GO.SetActive(false);
     }
@@ -125,11 +136,23 @@ public class PratitiMove : MonoBehaviour, ISaveable
             transform.eulerAngles = new Vector3(0, 180 , 0);
     }
 
+    public string GetID(){
+        if (GetComponent<SaveableEntity>() == null){
+            Debug.Log("沒掛SaveableEntity，請掛上");
+            return "";
+        }
+        if ( GetComponent<SaveableEntity>().ID == ""){
+            Debug.Log("尚未產生ID，請產生");
+            return "";
+        }
+
+        return GetComponent<SaveableEntity>().ID;
+    }
+
     // 將目前檔案匯出
     public object CaptureState(){
         return new SaveData{
-            isDefeat = isDefeat,
-            test = test
+            isDefeat = isDefeat
         };
     }
 
@@ -138,13 +161,11 @@ public class PratitiMove : MonoBehaviour, ISaveable
         var saveData = (SaveData)state;
 
         isDefeat = saveData.isDefeat;
-        test = saveData.test;
     }
 
     [System.Serializable]
     private struct SaveData{
         public bool isDefeat;
-        public int test;
     }
 }
 
