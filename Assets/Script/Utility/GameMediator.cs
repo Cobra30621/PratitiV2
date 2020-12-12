@@ -22,6 +22,7 @@ public class GameMediator
 	MapSystem m_mapSystem = null;
 	PratitiSystem m_pratitiSystem = null;
 	ItemSystem m_itemSystem = null;
+	SaveSystem m_saveSystem = null;
 
 	// 遊戲UI
 	public StickerSelectedUI _stickerSelectedUI;
@@ -34,6 +35,8 @@ public class GameMediator
 		m_mapSystem = new MapSystem(this);
 		m_pratitiSystem = new PratitiSystem(this);
 		m_itemSystem = new ItemSystem(this);
+		m_saveSystem = new SaveSystem(this);
+
 
 		_stickerSelectedUI = GameObject.Find("StickerSelectedPanel").GetComponent<StickerSelectedUI>();
 	}
@@ -242,6 +245,17 @@ public class GameMediator
 
 	public void GetStone(StoneType type){
 		m_itemSystem.GetStone(type);
+	}
+
+	// ================================================
+	// =================SaveSystem===============
+	// ================================================
+	public void Save(){
+		m_saveSystem.Save();
+	}
+
+	public void Load(){
+		m_saveSystem.Load();
 	}
 
 

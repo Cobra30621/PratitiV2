@@ -16,4 +16,14 @@ public class Test : MonoBehaviour
         GameMediator.Instance.GetStone(type);
     }
 
+    [ContextMenu("Save")]
+    public void Save(){
+        GameMediator.Instance.Save();
+    }
+
+    [ContextMenu("Load")]
+    public void Load(){
+        GameMediator.Instance.Load();
+    }
+
 }

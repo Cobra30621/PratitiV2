@@ -756,6 +756,8 @@
      <Compile Include="Assets\Script\Pratiti\PratitiData.cs" />
      <Compile Include="Assets\Script\Pratiti\PratitiSystem.cs" />
      <Compile Include="Assets\Script\Pratiti\PratitiUI.cs" />
+     <Compile Include="Assets\Script\Save\ISaveable.cs" />
+     <Compile Include="Assets\Script\Save\SaveableEntity.cs" />
      <Compile Include="Assets\Script\Save\SaveSystem.cs" />
      <Compile Include="Assets\Script\SceneState\BattleState.cs" />
      <Compile Include="Assets\Script\SceneState\ISceneState.cs" />
