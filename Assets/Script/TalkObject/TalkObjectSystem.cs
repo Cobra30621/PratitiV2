@@ -40,15 +40,15 @@ public class TalkObjectSystem : IGameSystem
 
     private void onFungusPlay(Fungus.Block b)
     {
-        Debug.Log("<color=purple>Fungus Play: "+b.BlockName+"</color>");
-        IsTalking = true;
+        // Debug.Log("<color=purple>Fungus Play: "+b.BlockName+"</color>");
+        // IsTalking = true;
         onStoryStart?.Invoke(b);
     }
 
     private void onFungusEnd(Fungus.Block b)
     {
-        Debug.Log("<color=purple>Fungus End: "+b.BlockName+"</color>");
-        IsTalking = false;
+        // Debug.Log("<color=purple>Fungus End: "+b.BlockName+"</color>");
+        // IsTalking = false;
         onStoryEnd?.Invoke(b);
         // UpdateObjectBehavior(); // 更新對話物件狀態
     }
@@ -109,6 +109,42 @@ public class TalkObjectSystem : IGameSystem
     public bool GetIstalking(){
         return IsTalking;
     }
+
+    public void SetIsTalking(bool bo){
+        IsTalking = bo;
+    }
+
+    public string EndBattleStoryName; // 回到戰鬥時，撥放的劇情名稱
+    public bool playEndBattleStory;
+
+    // 回戰鬥時撥放劇情
+    public void SetEndBattlerStory(string name){
+        EndBattleStoryName = name;
+        SetWhetherPlayEndBattleStory(true);
+        
+    }
+
+    public void SetWhetherPlayEndBattleStory(bool bo){
+         playEndBattleStory = bo;
+    }
+
+    public void PlayEndBattleStory(){
+        if( !playEndBattleStory){return;} // 戰鬥結束後，是否要撥劇情
+
+        string blockName = EndBattleStoryName;
+        BattleOutcome battleOutcome = GameMediator.Instance. GetBattleOutcome();
+        if(battleOutcome == BattleOutcome.Win)
+            blockName += "_Win";
+        if(battleOutcome == BattleOutcome.Lose)
+            blockName += "_Lose";
+
+        if(mainFlowchart == null)
+            mainFlowchart = GameObject.Find("MainFlowchart").GetComponent<Flowchart>();
+
+        UseFungus.PlayBlock(mainFlowchart.gameObject, blockName);
+        SetWhetherPlayEndBattleStory(false);
+    }
+
 
 
     // 存檔相關

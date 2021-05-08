@@ -15,7 +15,7 @@ public class TalkIcon{
         if(talkIconType == TalkIconType.Null){return;}
         LoadAssest();
         talkIcon.transform.SetParent( talkObject.transform);
-        talkIcon.transform.position = talkObject.transform.position + new Vector3(0.2f, 1.5f, 0);
+        talkIcon.transform.position = talkObject.transform.position + new Vector3(0.2f, 1.3f, 0);
         CloseIcon();
     }
 

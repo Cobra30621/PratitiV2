@@ -1,10 +1,73 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 // 從專案的Resource中,將Unity Asset實體化成GameObject的工廠類別
 public class ResourceAssetFactory : IAssetFactory 
 {
+	public const string PratitiDataPath = "PratitiData/";
+	public const string StickerDataPath = "StickerData/";
+	public const string StoneDataPath = "StoneData/";
 	public const string TalkIconPath = "TalkIcon/";
+	public const string PratitiSpritePath = "Pratiti/";
+	public const string ItemPath = "Item/";
+	
+	public override StoneData LoadStoneData(StoneType type){
+		string stoneName = Enum.GetName(typeof(StoneType), type );
+
+		return Resources.Load( StoneDataPath + stoneName,typeof(StoneData)) as StoneData;
+	}
+
+	public override PratitiData LoadPratitiData(PratitiType type){
+		string pratitiName = "feather";
+        switch(type){
+            case PratitiType.Feather:
+                pratitiName = "feather";
+                break;
+            case PratitiType.Pig:
+                pratitiName = "pig";
+                break;
+			case PratitiType.Cloud:
+                pratitiName = "cloud";
+                break;
+			case PratitiType.Null:
+				pratitiName = "null";
+				break;
+            default:
+                Debug.LogError("找不到Icon");
+                break;
+        }
+
+		return Resources.Load(  PratitiDataPath + pratitiName,typeof(PratitiData)) as PratitiData;
+	}
+
+	public override StickerData LoadStickerData(StickerType type){
+		string name = "attr";
+        switch(type){
+            case StickerType.Attr:
+                name = "attr";
+                break;
+			case StickerType.Hp:
+                name = "hp";
+                break;
+			case StickerType.Def:
+                name = "def";
+                break;
+			case StickerType.Null:
+                name = "null";
+                break;
+            default:
+                Debug.LogError("找不到StickerData");
+                break;
+        }
+
+		return Resources.Load(  StickerDataPath + name,typeof(StickerData)) as StickerData;
+	}
+
+	// 讀取快樂草資料
+	public override Sprite LoadHappyGrassIcon(){
+		return Resources.Load(  ItemPath + "happyGrass",typeof(Sprite)) as Sprite;
+	}
 
 	// 產生Icon
 	public override GameObject LoadTalkIcon( string AssetName )

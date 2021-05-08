@@ -12,9 +12,15 @@ namespace Fungus
     [AddComponentMenu("")]
     public class EnterBattle : Command 
     {
+        // [Header("將自己放進來")]
+        public MapPratiti _pratiti;
+
         public override void OnEnter()
         {
+            GameMediator.Instance.SetEnemyPratiti(_pratiti);
+            Debug.Log("設置敵方辣拉提提"+ _pratiti);
             GameMediator.Instance.EnterBattle();
+
         }
 
         public override string GetSummary()
