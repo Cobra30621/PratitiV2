@@ -4,7 +4,19 @@ using System.Collections;
 // 將Unity Asset實體化成GameObject的工廠類別
 public abstract class IAssetFactory
 {
-	// 產生Soldier
+	// 讀取帕拉提提資料
+	public abstract PratitiData LoadPratitiData(PratitiType type);
+
+	// 讀取石頭資料
+	public abstract StoneData LoadStoneData(StoneType type);
+
+	// 讀取貼紙資料
+	public abstract StickerData LoadStickerData(StickerType type);
+	
+	// 讀取快樂草資料
+	public abstract Sprite LoadHappyGrassIcon();
+
+	// 產生物件
 	public abstract GameObject LoadTalkIcon( string AssetName );
 
 

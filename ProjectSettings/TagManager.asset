@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - TalkObject
+  - VSCamera
+  - Enemy
+  - Wall
+  - BattlePratiti
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -26,9 +31,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - ===Map===
+  - Player
+  - Pratiti
   - 
   - 
   - 
@@ -41,4 +46,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Character
+    uniqueID: 1632197695
+    locked: 0
+  - name: Background
+    uniqueID: 1746240165
+    locked: 0
+  - name: Platform
+    uniqueID: 1687611093
+    locked: 0
+  - name: Item
+    uniqueID: 1381215001
+    locked: 0
+  - name: Bar
+    uniqueID: 2002108613
     locked: 0

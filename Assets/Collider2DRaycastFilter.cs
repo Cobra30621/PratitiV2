@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+
+//用PolyCollider來改變按鈕判定範圍
 [RequireComponent(typeof(RectTransform), typeof(Collider2D))]
 public class Collider2DRaycastFilter : MonoBehaviour, ICanvasRaycastFilter
 {

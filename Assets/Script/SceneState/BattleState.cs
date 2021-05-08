@@ -31,6 +31,6 @@ public class BattleState : ISceneState
 	}
 
 	public void BackToMap(){
-		m_Controller.SetState(new MapState(m_Controller), "Map" );
+		m_Controller.SetState(new MapState(m_Controller), "Map2" );
 	}
 }
